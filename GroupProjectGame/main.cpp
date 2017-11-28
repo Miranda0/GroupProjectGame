@@ -3,5 +3,8 @@
 
 
 void main() {
-	std::cout << "Hello team";
+	std::cout << "Hello team" << std::endl;
+	std::cout << "Arthur was here..." << std::endl;
+
+
 }
