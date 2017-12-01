@@ -27,7 +27,7 @@ void arthur::arthurTestSFML()
 		// player variables
 		float playerHVelocity = 0.0;
 		float playerVVelocity = 0.0;
-		float playerSpeed = 5.0;
+		float playerSpeed = 4.0;
 
 		// this is the main game loop
 		// events in this loop will happen ~60 times a second
