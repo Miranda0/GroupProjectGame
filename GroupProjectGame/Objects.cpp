@@ -1,8 +1,9 @@
 #include "Objects.h"
 
-Object::Object(float size, float newSpeed) {
-	graphic = new sf::Sprite(size);
+Object::Object(float radius, float newSpeed) {
+	graphic = new sf::Sprite;
 	speed = newSpeed;
+	radius = radius;
 }
 
 
@@ -18,7 +19,7 @@ bool Object::collision(Object other) { // assuming our hitboxes will be circles 
 	float dist2 = xy1.y - xy2.y;
 	float num = dist1*dist1 + dist2*dist2;
 	float finalDist = pow(num, 0.5);
-	if (finalDist <= graphic->getRadius() + other.graphic->getRadius()) {
+	if (finalDist <= radius + other.radius) {
 		crash = true;
 	}
 	return crash;

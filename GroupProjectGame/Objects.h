@@ -6,9 +6,10 @@
 class Object {
 protected:
 	float speed;
+	float radius;
 	sf::Sprite* graphic;
 public:
-	Object(float size, float newSpeed);
+	Object(float radius, float newSpeed);
 	void setSpeed(float newSpeed);
 	bool collision(Object other);
 };
