@@ -21,33 +21,38 @@ directories on their computer.
 void arthur::arthurTestSFML()
 {
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+	window.setFramerateLimit(60);
 	sf::CircleShape shape(50.f);
 	shape.setPosition(640, 600);
 	shape.setFillColor(sf::Color::Red);
 
+	// time 
+	int time = 0;
+
 	// player variables
 	float playerHVelocity = 0.0;
 	float playerVVelocity = 0.0;
-	float playerSpeed = 0.25;
+	float playerSpeed = 4.0;
 	bool pressedLeft = false;
 	bool pressedRight = false;
 	bool pressedUp = false;
 	bool pressedDown = false;
 
 	//debug
-	sf::Text text;
+	sf::Text debugMessage;
 	sf::Font font;
 	font.loadFromFile("arial.ttf");
-	text.setFillColor(sf::Color::White);
-	text.setCharacterSize(24);
-	text.setFont(font);
+	debugMessage.setFillColor(sf::Color::White);
+	debugMessage.setCharacterSize(24);
+	debugMessage.setFont(font);
 
+	// this is the main game loop
+	// events in this loop will happen ~60 times a second
 	while (window.isOpen())
 	{
 		sf::Event event;
 
-		// this is the main game loop
-		// events in this loop will happen ~60 times a second
+		time++;
 		while (window.pollEvent(event))
 		{
 			// player controls that should be better
@@ -90,14 +95,18 @@ void arthur::arthurTestSFML()
 		}
 		// sum the movement together
 		playerHVelocity = (pressedRight - pressedLeft) * playerSpeed;
-		playerVVelocity = (pressedDown - pressedUp) * playerSpeed/2;
+		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		shape.move(playerHVelocity, playerVVelocity);
-		text.setString("player h speed is: " + std::to_string(playerHVelocity));
+
+
+		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
+							   "player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
+							   "time(frames since start): " + std::to_string(time));
 		
 
 		window.clear();
 		window.draw(shape);
-		window.draw(text);
+		window.draw(debugMessage);
 		window.display();
 	}
 }
