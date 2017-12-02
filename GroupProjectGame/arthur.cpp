@@ -98,11 +98,9 @@ void arthur::arthurTestSFML()
 		playerVVelocity = ((pressedDown * 1.25) - (pressedUp * 0.75)) * playerSpeed * !(pressedUp && pressedDown);
 		shape.move(playerHVelocity, playerVVelocity);
 
-
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 							   "player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
-							   "time(frames since start): " + std::to_string(time));
-		
+							   "time(frames since start): " + std::to_string(time)); 
 
 		window.clear();
 		window.draw(shape);
