@@ -3,43 +3,43 @@
 using std::cout;
 using std::endl;
 
-NPC_1::NPC_1():Object(40,10)
+NPC::NPC():Object(40,10)
 {
 	health = 1;
 	shoot_speed = 100;
 	direction = 180;
 }
 
-NPC_1::~NPC_1()
+NPC::~NPC()
 {
 	cout << "unit killed" << endl;
 }
 
-void NPC_1::set_graphic(sf::Texture graphic)
+void NPC::set_graphic(sf::Texture graphic)
 {
 	this->graphic->setTexture(graphic);
 }
 
-void NPC_1::set_speed(float speed)
+void NPC::set_speed(float speed)
 {
 	this->speed = speed;
 }
 
-float NPC_1::get_speed()
+float NPC::get_speed()
 {
 	return this->speed;
 }
 
-sf::Sprite* NPC_1::get_graphic()
+sf::Sprite* NPC::get_graphic()
 {
 	return this->graphic;
 }
 
-void NPC_1::movement_pattern()
+void NPC::movement_pattern()
 {
 
 }
 
-void NPC_1::destroy() {
+void NPC::destroy() {
 
 }
