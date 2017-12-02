@@ -17,6 +17,5 @@ int main()
 
 	arthur a;
 	a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
-
 	return 0;
 }

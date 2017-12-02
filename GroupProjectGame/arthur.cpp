@@ -37,6 +37,9 @@ void arthur::arthurTestSFML()
 	bool pressedRight = false;
 	bool pressedUp = false;
 	bool pressedDown = false;
+	
+	sf::Texture texture;
+	texture.loadFromFile();
 
 	//debug
 	sf::Text debugMessage;
@@ -45,6 +48,7 @@ void arthur::arthurTestSFML()
 	debugMessage.setFillColor(sf::Color::White);
 	debugMessage.setCharacterSize(24);
 	debugMessage.setFont(font);
+
 
 	// this is the main game loop
 	// events in this loop will happen ~60 times a second
