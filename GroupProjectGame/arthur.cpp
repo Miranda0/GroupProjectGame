@@ -47,6 +47,10 @@ void arthur::arthurTestSFML()
 	bool pressedRight = false;
 	bool pressedUp = false;
 	bool pressedDown = false;
+	/*
+	Feel free to comment this part out to get rid of the random mario
+	*/
+
 	sf::CircleShape* testing_ptr;
 	NPC_1 testing;
 	sf::Texture text;
@@ -54,6 +58,7 @@ void arthur::arthurTestSFML()
 	sf::Texture *text_ptr = &text;
 	testing.set_graphic(text_ptr);
 	testing_ptr = testing.get_graphic();
+
 
 	//debug
 	sf::Text debugMessage;
@@ -125,7 +130,9 @@ void arthur::arthurTestSFML()
 
 		window.clear();
 		window.draw(shape);
-		window.draw(*testing_ptr);
+
+		window.draw(*testing_ptr); // This is also part of the mario code
+		
 		window.draw(sprite);
 		window.draw(debugMessage);
 		window.display();
