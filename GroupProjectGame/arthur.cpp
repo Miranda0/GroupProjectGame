@@ -54,7 +54,7 @@ void arthur::arthurTestSFML()
 	*/
 
 	sf::Sprite* testing_ptr;
-	NPC_1 testing;
+	NPC testing;
 	sf::Texture text;
 	text.loadFromFile("Enemy1.png");
 	sf::Texture *text_ptr = &text;
