@@ -138,6 +138,7 @@
     </ClCompile>
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="healthkit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Objects.cpp" />
@@ -145,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="healthkit.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Objects.h" />
   </ItemGroup>
