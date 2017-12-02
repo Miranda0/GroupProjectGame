@@ -7,7 +7,7 @@
 class Object {
 protected:
 	float speed;
-	sf::CircleShape* graphic;
+	sf::Sprite* graphic;
 public:
 	Object(float size, float newSpeed);
 	void setSpeed(float newSpeed);
