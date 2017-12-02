@@ -1,11 +1,12 @@
 #include "Asteroid.h"
 
 Asteroid::Asteroid():Object(40, 3) {
+	srand (time(NULL));
 	int position = rand() % 1280;
 	std::cout << "Position: " << position << std::endl;
 	graphic->setPosition(position, 0);
 	graphic->setFillColor(sf::Color::Blue);
-	direction = rand() % 1280;
+	direction = rand() % 360;
 	std::cout << "Direction: " << direction << std::endl;
 }
 

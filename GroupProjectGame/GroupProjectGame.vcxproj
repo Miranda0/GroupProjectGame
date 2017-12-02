@@ -137,15 +137,25 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Objects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="NPC.h" />
     <ClInclude Include="Objects.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arthur.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Enemy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
