@@ -1,11 +1,11 @@
 #pragma once
 #include "Objects.h"
 
-class NPC_1 : protected Object
+class NPC : protected Object
 {
 public:
-	NPC_1();
-	~NPC_1();
+	NPC();
+	~NPC();
 	void set_graphic(sf::Texture graphic);
 	void set_speed(float speed);
 	float get_speed();
