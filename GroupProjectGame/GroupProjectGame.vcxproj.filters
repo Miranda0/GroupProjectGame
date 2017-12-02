@@ -55,7 +55,7 @@
     <Image Include="Enemy1.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="asteroid.png">
+    <Image Include="asteroid-big-0000.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

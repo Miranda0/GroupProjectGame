@@ -5,7 +5,7 @@ Asteroid::Asteroid():Object(40, 3) {
 	int position = rand() % 1280;
 	std::cout << "Position: " << position << std::endl;
 	sf::Texture texture;
-	texture.loadFromFile("asteroid.png");
+	texture.loadFromFile("asteroid-big-0000.png");
 	graphic->setPosition(position, 0);
 	graphic->setTexture(texture);
 	direction = rand() % 360;

@@ -152,7 +152,7 @@
     <ClInclude Include="arthur.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="asteroid.png" />
+    <Image Include="asteroid-big-0000.png" />
     <Image Include="Enemy1.png" />
   </ItemGroup>
   <ItemGroup>
