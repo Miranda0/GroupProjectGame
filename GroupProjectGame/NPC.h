@@ -6,13 +6,14 @@ class NPC_1 : protected Object
 public:
 	NPC_1();
 	~NPC_1();
-	void set_graphic(sf::Texture* graphic);
+	void set_graphic(sf::Texture graphic);
 	void set_speed(float speed);
 	float get_speed();
-	sf::CircleShape* get_graphic();
+	sf::Sprite* get_graphic();
 	void movement_pattern();
 
-private:
+protected:
+	void virtual destroy();
 	int health;
 	float shoot_speed;
 	int direction;

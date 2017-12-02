@@ -1,11 +1,14 @@
 #include "Asteroid.h"
 
 Asteroid::Asteroid():Object(40, 3) {
+	srand (time(NULL));
 	int position = rand() % 1280;
 	std::cout << "Position: " << position << std::endl;
+	sf::Texture texture;
+	texture.loadFromFile("asteroid.png");
 	graphic->setPosition(position, 0);
-	graphic->setFillColor(sf::Color::Blue);
-	direction = rand() % 1280;
+	graphic->setTexture(texture);
+	direction = rand() % 360;
 	std::cout << "Direction: " << direction << std::endl;
 }
 
@@ -23,7 +26,14 @@ void runStuff() {
 	
 }
 
-sf::CircleShape* Asteroid::getGraphic() {
+sf::Sprite* Asteroid::getGraphic() {
 	return graphic;
 }
 
+Asteroid::~Asteroid() {
+
+}
+
+void Asteroid::destroy() {
+
+}

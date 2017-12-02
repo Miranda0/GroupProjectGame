@@ -4,11 +4,13 @@
 #include <SFML/Graphics.hpp>
 
 class Object {
-protected: //*
+protected:
 	float speed;
-	sf::CircleShape* graphic;
-public: //+
-	Object(float size, float newSpeed);
+	float radius;
+	sf::Sprite* graphic;
+	void virtual destroy() = 0;
+public:
+	Object(float radius, float newSpeed);
 	void setSpeed(float newSpeed);
-	bool collision(Object other);
+	virtual bool collision(Object* other);
 };

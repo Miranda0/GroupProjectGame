@@ -5,11 +5,11 @@
 
 class Asteroid: public Object {
 private:
-	float direction;
+	int direction;
 public:
 	Asteroid();
+	~Asteroid();
 	void moveObject();
-	void blowUp();
-	void runStuff();
-	sf::CircleShape* getGraphic();
+	void virtual destroy();
+	sf::Sprite* getGraphic();
 };
