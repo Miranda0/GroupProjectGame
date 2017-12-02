@@ -40,11 +40,12 @@ int main()
 		//slater edit
 
 		sf::Texture texture;
-		if (!texture.loadFromFile("62888349-star-wallpapers.jpg"));
+		if (!texture.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
 		sf::Sprite sprite(texture);
 
 		window.clear(); //12-2-17 slater
 		window.draw(sprite); //12-2-17 slater
+
 		
 
 		death.moveObject();

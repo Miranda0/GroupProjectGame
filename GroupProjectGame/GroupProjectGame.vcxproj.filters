@@ -52,10 +52,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Desktop\stars_background_blue_photoshop_color_space_sky_dark-610854.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="62888349-star-wallpapers.jpg">
+    <Image Include="milky_way_stars_night_sky_space_97654_1280x720.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

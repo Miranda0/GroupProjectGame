@@ -152,8 +152,7 @@
     <ClInclude Include="arthur.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Desktop\stars_background_blue_photoshop_color_space_sky_dark-610854.jpg" />
-    <Image Include="62888349-star-wallpapers.jpg" />
+    <Image Include="milky_way_stars_night_sky_space_97654_1280x720.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
