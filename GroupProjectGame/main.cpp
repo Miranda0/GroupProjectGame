@@ -42,7 +42,7 @@ int main()
 		sf::Texture texture;
 		if (!texture.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
 		sf::Sprite sprite(texture);
-
+		//https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1280x720.jpg
 		window.clear(); //12-2-17 slater
 		window.draw(sprite); //12-2-17 slater
 
