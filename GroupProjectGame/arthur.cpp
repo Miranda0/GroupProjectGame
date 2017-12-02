@@ -1,7 +1,7 @@
 #include "arthur.h"
 #include <iostream>
 #include <string>
-
+#include "NPC.h"
 
 
 using std::cout;
@@ -47,6 +47,13 @@ void arthur::arthurTestSFML()
 	bool pressedRight = false;
 	bool pressedUp = false;
 	bool pressedDown = false;
+	sf::CircleShape* testing_ptr;
+	NPC_1 testing;
+	sf::Texture text;
+	text.loadFromFile("Enemy1.png");
+	sf::Texture *text_ptr = &text;
+	testing.set_graphic(text_ptr);
+	testing_ptr = testing.get_graphic();
 
 	//debug
 	sf::Text debugMessage;
@@ -118,6 +125,7 @@ void arthur::arthurTestSFML()
 
 		window.clear();
 		window.draw(shape);
+		window.draw(*testing_ptr);
 		window.draw(sprite);
 		window.draw(debugMessage);
 		window.display();
