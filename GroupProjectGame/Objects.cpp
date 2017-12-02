@@ -1,4 +1,5 @@
 #include "Objects.h"
+#define PI 3.14159265
 
 Object::Object(float size, float newDirection, float newSpeed) {
 	graphic = new sf::CircleShape(size);
@@ -7,7 +8,11 @@ Object::Object(float size, float newDirection, float newSpeed) {
 }
 
 void Object::moveObject() {
+	radDirection = direction*(180 / std::PI);
 	
+	float xmove;
+	float ymove;
+	xmove = sin(direction);
 }
 
 void Object::setDirection(float newDirection) {
@@ -20,8 +25,10 @@ void Object::setSpeed(float newSpeed) {
 
 bool Object::collision(Object other) { // assuming our hitboxes will be circles because easier
 	bool crash = false;
-	float dist1 = graphic->getPosition[1] - other.graphic->getPosition[1]; //finding distance between points
-	float dist2 = graphic->getPosition[2] - other.graphic->getPosition[2];
+	sf::Vector2f xy1 = graphic->getPosition();
+	sf::Vector2f xy2 = other.graphic->getPosition();
+	float dist1 = xy1.x - xy2.x; //finding distance between points
+	float dist2 = xy1.y - xy2.y;
 	float num = dist1*dist1 + dist2*dist2;
 	float finalDist = pow(num, 0.5);
 	if (finalDist <= graphic->getRadius + other.graphic->getRadius) {
