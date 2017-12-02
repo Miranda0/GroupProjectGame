@@ -7,14 +7,12 @@
 class Object {
 protected:
 	float direction;
-	float position[2]; // row then column
-	int radius; 
 	float speed;
+	sf::CircleShape* graphic;
 	void moveObject();
 public:
+	Object(float size, float newDirection, float newSpeed);
 	void setDirection(float newDirection);
-	void setPosition(float newPosition[2]);
-	void setRadius(int newRadius);
 	void setSpeed(float newSpeed);
 	bool collision(Object other);
 };
