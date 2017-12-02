@@ -19,8 +19,8 @@ int main()
 
 	
 
-	//arthur a;
-	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
+	arthur a;
+	a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
 	Asteroid death;
