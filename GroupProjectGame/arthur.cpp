@@ -95,7 +95,7 @@ void arthur::arthurTestSFML()
 		}
 		// sum the movement together
 		playerHVelocity = (pressedRight - pressedLeft) * playerSpeed;
-		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
+		playerVVelocity = ((pressedDown * 1.25) - (pressedUp * 0.75)) * playerSpeed * !(pressedUp && pressedDown);
 		shape.move(playerHVelocity, playerVVelocity);
 
 
