@@ -1,4 +1,9 @@
 #include "arthur.h"
+#include <iostream>
+#include <string>
+
+using std::cout;
+using std::endl;
 
 
 /*
@@ -15,52 +20,67 @@ directories on their computer.
 */
 void arthur::arthurTestSFML()
 {
-	sf::RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	sf::CircleShape shape(50.f);
-	shape.setFillColor(sf::Color::Green);
+	shape.setPosition(640, 600);
+	shape.setFillColor(sf::Color::Red);
+
+	// player variables
+	float playerHVelocity = 0.0;
+	float playerVVelocity = 0.0;
+	float playerSpeed = 0.25;
+	bool pressedLeft = false;
+	bool pressedRight = false;
+	bool pressedUp = false;
+	bool pressedDown = false;
+
+	//debug
+	sf::Text text;
+	sf::Font font;
+	font.loadFromFile("arial.ttf");
+	text.setFillColor(sf::Color::White);
+	text.setCharacterSize(24);
+	text.setFont(font);
 
 	while (window.isOpen())
 	{
 		sf::Event event;
-		window.setKeyRepeatEnabled(true);
-
-		// player variables
-		float playerHVelocity = 0.0;
-		float playerVVelocity = 0.0;
-		float playerSpeed = 4.0;
 
 		// this is the main game loop
 		// events in this loop will happen ~60 times a second
 		while (window.pollEvent(event))
 		{
 			// player controls that should be better
-			/*
 			if (event.type == sf::Event::KeyPressed)			// key press
 			{
-			if (event.key.code == sf::Keyboard::Right) {
-			playerHVelocity = playerSpeed;
-			}
+				if (!pressedLeft && event.key.code == sf::Keyboard::Left) {
+					pressedLeft = true;
+				}
+				if (!pressedRight && event.key.code == sf::Keyboard::Right) {
+					pressedRight = true;
+				}
+				if (!pressedUp && event.key.code == sf::Keyboard::Up) {
+					pressedUp = true;
+				}
+				if (!pressedDown && event.key.code == sf::Keyboard::Down) {
+					pressedDown = true;
+				}
 			}
 			if (event.type == sf::Event::KeyReleased) 			// key release
-			{
-			if (event.key.code == sf::Keyboard::Right) {
-			playerHVelocity = 0.0;
+				{
+				if (pressedLeft && event.key.code == sf::Keyboard::Left) {
+					pressedLeft = false;
+				}
+				if (pressedRight && event.key.code == sf::Keyboard::Right) {
+					pressedRight = false;
+				}
+				if (pressedUp && event.key.code == sf::Keyboard::Up) {
+					pressedUp = false;
+				}
+				if (pressedDown && event.key.code == sf::Keyboard::Down) {
+					pressedDown = false;
+				}
 			}
-			}
-			shape.move(playerHVelocity, playerVVelocity);
-
-			/*/
-
-			// sucky player controls 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				shape.move(-playerSpeed, 0.0);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				shape.move(playerSpeed, 0.0);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				shape.move(0.0, -playerSpeed);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-				shape.move(0.0, playerSpeed);
-			//*/
 
 			// exit functions
 			if (event.type == sf::Event::Closed)
@@ -68,9 +88,16 @@ void arthur::arthurTestSFML()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				window.close();
 		}
+		// sum the movement together
+		playerHVelocity = (pressedRight - pressedLeft) * playerSpeed;
+		playerVVelocity = (pressedDown - pressedUp) * playerSpeed/2;
+		shape.move(playerHVelocity, playerVVelocity);
+		text.setString("player h speed is: " + std::to_string(playerHVelocity));
+		
 
 		window.clear();
 		window.draw(shape);
+		window.draw(text);
 		window.display();
 	}
 }
