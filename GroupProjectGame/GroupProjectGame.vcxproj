@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Desktop\stars_background_blue_photoshop_color_space_sky_dark-610854.jpg" />
+    <Image Include="62888349-star-wallpapers.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

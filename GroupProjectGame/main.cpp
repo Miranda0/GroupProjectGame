@@ -40,12 +40,12 @@ int main()
 		//slater edit
 
 		sf::Texture texture;
-		if (!texture.loadFromFile("stars_background_blue_photoshop_color_space_sky_dark-610854.jpg"));
+		if (!texture.loadFromFile("62888349-star-wallpapers.jpg"));
 		sf::Sprite sprite(texture);
 
 		window.clear(); //12-2-17 slater
 		window.draw(sprite); //12-2-17 slater
-		window.display(); //12-2-17 slater
+		
 
 		death.moveObject();
 		//window.clear();
