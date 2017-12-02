@@ -1,10 +1,9 @@
 #include "Asteroid.h"
 
-Asteroid::Asteroid():Object(40, 3) {
+Asteroid::Asteroid():Object(40, 5) {
 	srand (time(NULL));
 	int position = rand() % 1280;
 	std::cout << "Position: " << position << std::endl;
-	sf::Texture texture;
 	texture.loadFromFile("asteroid-big-0000.png");
 	graphic->setPosition(position, 0);
 	graphic->setTexture(texture);
@@ -17,8 +16,8 @@ void Asteroid::moveObject(){
 	float xMove;
 	float yMove;
 	float radDir = direction * (180 / PI);
-	xMove = cos(radDir);
-	yMove = sin(radDir);
+	xMove = cos(radDir) * speed;
+	yMove = sin(radDir) * speed;
 	graphic->move(xMove, yMove);
 }
 
