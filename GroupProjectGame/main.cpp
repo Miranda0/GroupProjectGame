@@ -45,7 +45,7 @@ int main()
 
 		window.clear(); //12-2-17 slater
 		window.draw(sprite); //12-2-17 slater
-		window.display(); //12-2-17 slater
+		
 
 		death.moveObject();
 		//window.clear();
