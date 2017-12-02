@@ -1,8 +1,11 @@
+
+#/*include <iostream>
+#include <fstream>
+#include "Background.h"
+
 #include "arthur.h"
 #include <iostream>
 #include <string>
-
-
 
 using std::cout;
 using std::endl;
@@ -20,7 +23,7 @@ I think if everyone puts it in the same directory it should work for everyone.
 I dont know how to manage things if everyone has it in different
 directories on their computer.
 */
-
+/*
 void arthur::arthurTestSFML()
 {
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
@@ -29,11 +32,20 @@ void arthur::arthurTestSFML()
 	shape.setPosition(640, 600);
 	shape.setFillColor(sf::Color::Red);
 
+		sf::Texture texture;
+		texture.loadFromFile("starbackground.jpg");
+		sf::Sprite sprite;
+		sprite.setTexture(texture);
 
-	sf::Texture texture;
-	texture.loadFromFile("apple_raw.png");
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
+		/*sf::Image image;
+		image.loadFromFile("starbackground.jpg");
+		texture.update(image);
+		*/
+/*
+		window.draw(sprite);
+
+	}
+
 
 
 	// time 
@@ -56,7 +68,7 @@ void arthur::arthurTestSFML()
 	debugMessage.setCharacterSize(24);
 	debugMessage.setFont(font);
 
-	
+
 
 	// this is the main game loop
 	// events in this loop will happen ~60 times a second
@@ -84,7 +96,7 @@ void arthur::arthurTestSFML()
 				}
 			}
 			if (event.type == sf::Event::KeyReleased) 			// key release
-				{
+			{
 				if (pressedLeft && event.key.code == sf::Keyboard::Left) {
 					pressedLeft = false;
 				}
@@ -112,14 +124,24 @@ void arthur::arthurTestSFML()
 
 
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
-							   "player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
-							   "time(frames since start): " + std::to_string(time));
-		
+			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
+			"time(frames since start): " + std::to_string(time));
+
 
 		window.clear();
 		window.draw(shape);
-		window.draw(sprite);
 		window.draw(debugMessage);
 		window.display();
 	}
 }
+
+
+
+
+}
+
+
+
+*/
+
+
