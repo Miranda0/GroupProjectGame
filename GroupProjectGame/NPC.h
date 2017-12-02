@@ -13,6 +13,7 @@ public:
 	void movement_pattern();
 
 protected:
+	void virtual destroy();
 	int health;
 	float shoot_speed;
 	int direction;

@@ -30,3 +30,10 @@ sf::Sprite* Asteroid::getGraphic() {
 	return graphic;
 }
 
+Asteroid::~Asteroid() {
+
+}
+
+void Asteroid::destroy() {
+
+}

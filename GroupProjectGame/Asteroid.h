@@ -10,7 +10,6 @@ public:
 	Asteroid();
 	~Asteroid();
 	void moveObject();
-	void destroy();
 	void virtual destroy();
 	sf::Sprite* getGraphic();
 };

@@ -39,3 +39,7 @@ void NPC_1::movement_pattern()
 {
 
 }
+
+void NPC_1::destroy() {
+
+}
