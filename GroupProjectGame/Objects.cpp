@@ -1,23 +1,10 @@
 #include "Objects.h"
-#define PI 3.14159265
 
 Object::Object(float size, float newDirection, float newSpeed) {
 	graphic = new sf::CircleShape(size);
-	direction = newDirection;
 	speed = newSpeed;
 }
 
-void Object::moveObject() {
-	radDirection = direction*(180 / std::PI);
-	
-	float xmove;
-	float ymove;
-	xmove = sin(direction);
-}
-
-void Object::setDirection(float newDirection) {
-	direction = newDirection;
-}
 
 void Object::setSpeed(float newSpeed) {
 	speed = newSpeed;
@@ -31,7 +18,7 @@ bool Object::collision(Object other) { // assuming our hitboxes will be circles 
 	float dist2 = xy1.y - xy2.y;
 	float num = dist1*dist1 + dist2*dist2;
 	float finalDist = pow(num, 0.5);
-	if (finalDist <= graphic->getRadius + other.graphic->getRadius) {
+	if (finalDist <= graphic->getRadius() + other.graphic->getRadius()) {
 		crash = true;
 	}
 	return crash;

@@ -6,10 +6,8 @@
 
 class Object {
 protected:
-	float direction;
 	float speed;
 	sf::CircleShape* graphic;
-	void moveObject();
 public:
 	Object(float size, float newDirection, float newSpeed);
 	void setDirection(float newDirection);
