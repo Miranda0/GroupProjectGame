@@ -1,6 +1,6 @@
 #include "Objects.h"
 
-Object::Object(float size, float newDirection, float newSpeed) {
+Object::Object(float size, float newSpeed) {
 	graphic = new sf::CircleShape(size);
 	speed = newSpeed;
 }

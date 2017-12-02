@@ -9,8 +9,7 @@ protected:
 	float speed;
 	sf::CircleShape* graphic;
 public:
-	Object(float size, float newDirection, float newSpeed);
-	void setDirection(float newDirection);
+	Object(float size, float newSpeed);
 	void setSpeed(float newSpeed);
 	bool collision(Object other);
 };
