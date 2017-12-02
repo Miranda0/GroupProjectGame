@@ -3,6 +3,7 @@
 #include <string>						// strings are for yo-yos and cats only
 #include "arthur.h"
 #include "Asteroid.h"
+#include "Slater.h"
 
 // SFML libraries
 #include <SFML/Graphics.hpp>
@@ -15,6 +16,8 @@ int main()
 {
 	cout << "Hello team" << endl;
 	cout << "Arthur was here..." << endl;
+
+	
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
@@ -33,11 +36,25 @@ int main()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				window.close();
 		}
+
+		//slater edit
+
+		sf::Texture texture;
+		if (!texture.loadFromFile("stars_background_blue_photoshop_color_space_sky_dark-610854.jpg"));
+		sf::Sprite sprite(texture);
+
+		window.clear(); //12-2-17 slater
+		window.draw(sprite); //12-2-17 slater
+		window.display(); //12-2-17 slater
+
 		death.moveObject();
-		window.clear();
+		//window.clear();
 		window.draw(*death.getGraphic());
 		window.display();
 	}
+
+
+
 
 	return 0;
 }
