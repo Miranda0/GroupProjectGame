@@ -138,14 +138,21 @@
     </ClCompile>
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Objects.cpp" />
+    <ClCompile Include="Slater.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="Slater.h" />
+    <ClInclude Include="NPC.h" />
     <ClInclude Include="Objects.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arthur.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\stars_background_blue_photoshop_color_space_sky_dark-610854.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

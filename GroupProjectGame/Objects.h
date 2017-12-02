@@ -4,10 +4,10 @@
 #include <SFML/Graphics.hpp>
 
 class Object {
-protected:
+protected: //*
 	float speed;
 	sf::CircleShape* graphic;
-public:
+public: //+
 	Object(float size, float newSpeed);
 	void setSpeed(float newSpeed);
 	bool collision(Object other);

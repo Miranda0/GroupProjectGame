@@ -2,12 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
-class Background
+
+class slater
 {
 public:
 	void test();
-
-protected:
-private:
-
 };
