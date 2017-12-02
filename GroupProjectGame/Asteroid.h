@@ -10,4 +10,6 @@ public:
 	Asteroid();
 	void moveObject();
 	void blowUp();
+	void runStuff();
+	sf::CircleShape* getGraphic();
 };

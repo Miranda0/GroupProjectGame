@@ -2,7 +2,11 @@
 
 Asteroid::Asteroid():Object(40, 3) {
 	int position = rand() % 1280;
-	
+	std::cout << "Position: " << position << std::endl;
+	graphic->setPosition(position, 0);
+	graphic->setFillColor(sf::Color::Blue);
+	direction = rand() % 1280;
+	std::cout << "Direction: " << direction << std::endl;
 }
 
 void Asteroid::moveObject(){
@@ -13,5 +17,13 @@ void Asteroid::moveObject(){
 	xMove = cos(radDir);
 	yMove = sin(radDir);
 	graphic->move(xMove, yMove);
+}
+
+void runStuff() {
+	
+}
+
+sf::CircleShape* Asteroid::getGraphic() {
+	return graphic;
 }
 
