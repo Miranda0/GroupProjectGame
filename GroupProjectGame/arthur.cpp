@@ -34,6 +34,8 @@ void arthur::arthurTestSFML()
 	texture.loadFromFile("apple_raw.png");
 	sf::Sprite sprite;
 	sprite.setTexture(texture);
+	
+	
 
 
 	// time 
