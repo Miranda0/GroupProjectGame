@@ -15,7 +15,7 @@ NPC_1::~NPC_1()
 	cout << "unit killed" << endl;
 }
 
-void NPC_1::set_graphic(sf::Texture* graphic)
+void NPC_1::set_graphic(sf::Texture graphic)
 {
 	this->graphic->setTexture(graphic);
 }
@@ -30,7 +30,7 @@ float NPC_1::get_speed()
 	return this->speed;
 }
 
-sf::CircleShape* NPC_1::get_graphic()
+sf::Sprite* NPC_1::get_graphic()
 {
 	return this->graphic;
 }

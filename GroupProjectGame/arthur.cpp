@@ -34,6 +34,8 @@ void arthur::arthurTestSFML()
 	texture.loadFromFile("apple_raw.png");
 	sf::Sprite sprite;
 	sprite.setTexture(texture);
+	
+	
 
 
 	// time 
@@ -51,12 +53,12 @@ void arthur::arthurTestSFML()
 	Feel free to comment this part out to get rid of the random mario
 	*/
 
-	sf::CircleShape* testing_ptr;
+	sf::Sprite* testing_ptr;
 	NPC_1 testing;
 	sf::Texture text;
 	text.loadFromFile("Enemy1.png");
 	sf::Texture *text_ptr = &text;
-	testing.set_graphic(text_ptr);
+	testing.set_graphic(text);
 	testing_ptr = testing.get_graphic();
 
 
