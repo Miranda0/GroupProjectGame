@@ -2,14 +2,13 @@
 #include <iostream>
 #include <string>
 #include <SFML/Graphics.hpp>
-#include <math.h>
 
 class Object {
 protected:
 	float speed;
 	sf::CircleShape* graphic;
 public:
-	Object(float size, float newDirection, float newSpeed);
+	Object(float size, float newSpeed);
 	void setSpeed(float newSpeed);
 	bool collision(Object other);
 };
