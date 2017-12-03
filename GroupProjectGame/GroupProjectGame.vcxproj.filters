@@ -33,8 +33,8 @@
     <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="healthkit.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
@@ -56,8 +56,8 @@
     <ClInclude Include="Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="healthkit.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
