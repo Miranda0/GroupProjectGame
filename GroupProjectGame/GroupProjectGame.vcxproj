@@ -159,6 +159,7 @@
     <ClInclude Include="arthur.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\HealthSymbol.jpg" />
     <Image Include="asteroid-big-0000.png" />
     <Image Include="Enemy1.png" />
   </ItemGroup>

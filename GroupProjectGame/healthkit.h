@@ -1,18 +1,26 @@
 #pragma once
 #include "Objects.h"
 
+
+
 class healthkit: public Object
 {
 public:
-	int healthPts;
+	
 
 	healthkit();
 	~healthkit();
 	//int getHealthPts();
+	void destroy();
+
+	
+
+
 
 protected:
 private:
 	//int healthPts;
+	
 
 
 };
