@@ -6,11 +6,13 @@
 class healthkit: public Object
 {
 public:
-	int healthPts;
+	
 
 	healthkit();
 	~healthkit();
 	//int getHealthPts();
+	void destroy();
+
 	
 
 
@@ -18,6 +20,7 @@ public:
 protected:
 private:
 	//int healthPts;
+	
 
 
 };

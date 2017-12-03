@@ -1,11 +1,16 @@
 #include "healthkit.h"
 
-healthkit::healthkit()
+healthkit::healthkit():Object(20,0)
 {
-	healthPts = 2;
+	
 
 }
 healthkit::~healthkit()
+{
+
+}
+
+void healthkit::destroy()
 {
 
 }
