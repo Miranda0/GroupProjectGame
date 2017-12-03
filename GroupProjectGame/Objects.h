@@ -12,6 +12,7 @@ protected:
 	void virtual destroy() = 0;
 public:
 	Object(float radius, float newSpeed);
+	~Object();
 	void setSpeed(float newSpeed);
 	virtual bool collision(Object* other);
 };
