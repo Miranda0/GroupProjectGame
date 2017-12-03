@@ -1,5 +1,7 @@
 #pragma once
 #include "Objects.h"
+#include <math.h>
+
 
 
 
@@ -11,7 +13,8 @@ public:
 	healthkit();
 	~healthkit();
 	//int getHealthPts();
-	void destroy();
+	void virtual destroy();
+	sf::Sprite* getGraphic();
 
 	
 
@@ -21,6 +24,6 @@ protected:
 private:
 	//int healthPts;
 	sf::Texture texture;
-
+	int direction;
 
 };
