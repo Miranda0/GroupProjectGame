@@ -21,11 +21,14 @@ int main()
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
-	
+
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
+
+	healthkit health;
 	Asteroid death;
+	
 	int time = 0;
 
 	// player variables
@@ -105,8 +108,8 @@ int main()
 
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
-							   "player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
-							   "time(frames since start): " + std::to_string(time));
+			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
+			"time(frames since start): " + std::to_string(time));
 
 
 		// drawing stage
@@ -114,6 +117,7 @@ int main()
 		window.draw(background); //12-2-17 slater
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
+		window.draw(*health.getGraphic());
 		window.display();
 	}
 
