@@ -16,6 +16,7 @@ public:
 	void virtual destroy();
 	sf::Sprite* getGraphic();
 
+
 	
 
 

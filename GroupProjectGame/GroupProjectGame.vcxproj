@@ -133,13 +133,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Andrew.cpp" />
     <ClCompile Include="arthur.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="Background.cpp" />
-    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Enemy1.cpp" />
+    <ClCompile Include="Enemy2.cpp" />
+    <ClCompile Include="Enemy3.cpp" />
+    <ClCompile Include="EnemyTracker.cpp" />
+    <ClCompile Include="EnemyTrackerNode.cpp" />
     <ClCompile Include="healthkit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -147,10 +151,14 @@
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Andrew.h" />
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Background.h" />
-    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Enemy1.h" />
+    <ClInclude Include="Enemy2.h" />
+    <ClInclude Include="Enemy3.h" />
+    <ClInclude Include="EnemyTracker.h" />
+    <ClInclude Include="EnemyTrackerNode.h" />
     <ClInclude Include="healthkit.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Objects.h" />
@@ -160,7 +168,6 @@
     <ClInclude Include="arthur.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Desktop\newlifekit.png" />
     <Image Include="asteroid-big-0000.png" />
     <Image Include="Enemy1.png" />
   </ItemGroup>
