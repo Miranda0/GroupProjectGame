@@ -2,7 +2,7 @@
 
 Bullet::Bullet(int newDirection):Object(5, 5) {
 	direction = newDirection;
-	texture.loadFromFile("asteroid-big-0000.png");
+	texture.loadFromFile("spr_bullet_strip.png");
 	graphic->setTexture(texture);
 }
 
