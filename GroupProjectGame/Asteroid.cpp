@@ -30,5 +30,5 @@ Asteroid::~Asteroid() {
 }
 
 void Asteroid::destroy() {
-	texture.loadFromFile()
+	texture.loadFromFile("asteroid-big-0000.png");
 }

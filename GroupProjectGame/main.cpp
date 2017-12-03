@@ -4,6 +4,7 @@
 #include "arthur.h"
 #include "Asteroid.h"
 #include "Slater.h"
+#include "healthkit.h"
 
 // SFML libraries
 #include <SFML/Graphics.hpp>
@@ -24,6 +25,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
 	Asteroid death;
+	healthkit save;
 	int time = 0;
 	while (window.isOpen())
 	{
@@ -47,9 +49,11 @@ int main()
 		window.draw(sprite); //12-2-17 slater
 
 		
-
+		
 		death.moveObject();
 		//window.clear();
+
+		window.draw(*save.getGraphic());
 		window.draw(*death.getGraphic());
 		window.display();
 	}
