@@ -144,6 +144,7 @@
     <ClCompile Include="Enemy3.cpp" />
     <ClCompile Include="EnemyTracker.cpp" />
     <ClCompile Include="EnemyTrackerNode.cpp" />
+    <ClCompile Include="healthkit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Objects.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Enemy3.h" />
     <ClInclude Include="EnemyTracker.h" />
     <ClInclude Include="EnemyTrackerNode.h" />
+    <ClInclude Include="healthkit.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
