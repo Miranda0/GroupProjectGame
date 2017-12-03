@@ -5,6 +5,7 @@
 #include "Asteroid.h"
 #include "Slater.h"
 #include "Player.h"
+#include "healthkit.h"
 
 // SFML libraries
 #include <SFML/Graphics.hpp>
