@@ -7,4 +7,16 @@ Enemy1::Enemy1()
 	graphic->setTexture(texture);
 	health = 1;
 	shoot_speed = 5;
+	direction = 180;
+}
+
+
+Enemy1::~Enemy1()
+{
+
+}
+
+void Enemy1::destroy()
+{
+
 }
