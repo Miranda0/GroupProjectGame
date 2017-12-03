@@ -30,5 +30,5 @@ Asteroid::~Asteroid() {
 }
 
 void Asteroid::destroy() {
-	texture.loadFromFile()
+	texture.loadFromFile("spr_bullet_strip.png");
 }
