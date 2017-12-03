@@ -110,7 +110,8 @@ int main()
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
 			"time(frames since start): " + std::to_string(time));
-
+		
+		
 
 		// drawing stage
 		window.clear(); //12-2-17 slater
