@@ -6,6 +6,9 @@ Object::Object(float radius, float newSpeed) {
 	radius = radius;
 }
 
+Object::~Object() {
+	delete graphic;
+}
 
 void Object::setSpeed(float newSpeed) {
 	speed = newSpeed;
