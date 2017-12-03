@@ -2,6 +2,8 @@
 
 Bullet::Bullet(int newDirection):Object(5, 5) {
 	direction = newDirection;
+	texture.loadFromFile("asteroid-big-0000.png");
+	graphic->setTexture(texture);
 }
 
 Bullet::~Bullet() {
