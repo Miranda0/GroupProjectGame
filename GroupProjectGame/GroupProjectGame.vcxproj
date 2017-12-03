@@ -133,18 +133,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Andrew.cpp" />
     <ClCompile Include="arthur.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Enemy1.cpp" />
+    <ClCompile Include="Enemy2.cpp" />
+    <ClCompile Include="Enemy3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Objects.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Andrew.h" />
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Enemy1.h" />
+    <ClInclude Include="Enemy2.h" />
+    <ClInclude Include="Enemy3.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Objects.h" />
   </ItemGroup>
