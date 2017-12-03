@@ -20,7 +20,7 @@ public:
 protected:
 private:
 	//int healthPts;
-	
+	sf::Texture texture;
 
 
 };

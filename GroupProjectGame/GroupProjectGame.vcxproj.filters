@@ -33,10 +33,19 @@
     <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="Enemy1.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="healthkit.cpp">
+    <ClCompile Include="Enemy2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Andrew.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
@@ -59,10 +68,19 @@
     <ClInclude Include="Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Enemy1.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="healthkit.h">
+    <ClInclude Include="Enemy2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Andrew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
@@ -74,9 +92,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Enemy1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\HealthSymbol.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

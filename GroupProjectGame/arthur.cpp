@@ -32,11 +32,6 @@ void arthur::arthurTestSFML()
 	player.setPosition(640, 600);
 
 
-	sf::Texture texture;
-	texture.loadFromFile("apple_raw.png");
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
-	
 	
 
 
@@ -137,7 +132,7 @@ void arthur::arthurTestSFML()
 
 		window.draw(*testing_ptr); // This is also part of the mario code
 		
-		window.draw(sprite);
+		
 		window.draw(debugMessage);
 		window.display();
 	}
