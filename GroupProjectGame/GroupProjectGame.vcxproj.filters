@@ -82,7 +82,7 @@
     <Image Include="Enemy1.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\..\..\Desktop\newlifekit.png">
+    <Image Include="newlifekit.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
