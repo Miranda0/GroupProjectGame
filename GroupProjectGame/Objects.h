@@ -8,6 +8,7 @@ protected:
 	float speed;
 	float radius;
 	sf::Sprite* graphic;
+	sf::Texture texture;
 	void virtual destroy() = 0;
 public:
 	Object(float radius, float newSpeed);

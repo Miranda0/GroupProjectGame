@@ -21,10 +21,6 @@ void Asteroid::moveObject(){
 	graphic->move(xMove, yMove);
 }
 
-void runStuff() {
-	
-}
-
 sf::Sprite* Asteroid::getGraphic() {
 	return graphic;
 }
@@ -34,5 +30,5 @@ Asteroid::~Asteroid() {
 }
 
 void Asteroid::destroy() {
-
+	texture.loadFromFile()
 }

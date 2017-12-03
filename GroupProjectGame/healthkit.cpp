@@ -2,7 +2,7 @@
 
 healthkit::healthkit():Object(20,0)
 {
-	
+	texture.loadFromFile("HealthSymbol.jpg");
 
 }
 healthkit::~healthkit()
