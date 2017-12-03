@@ -6,6 +6,7 @@
 class Asteroid: public Object {
 private:
 	int direction;
+	sf::Texture texture;
 public:
 	Asteroid();
 	~Asteroid();

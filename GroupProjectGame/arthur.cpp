@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "NPC.h"
+#include "Player.h"
 
 
 using std::cout;
@@ -25,9 +26,10 @@ void arthur::arthurTestSFML()
 {
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
-	sf::CircleShape shape(50.f);
-	shape.setPosition(640, 600);
-	shape.setFillColor(sf::Color::Red);
+	// sf::CircleShape shape(50.f);
+	Player player;
+	
+	player.setPosition(640, 600);
 
 
 	sf::Texture texture;
@@ -122,7 +124,7 @@ void arthur::arthurTestSFML()
 		// sum the movement together
 		playerHVelocity = (pressedRight - pressedLeft) * playerSpeed;
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
-		shape.move(playerHVelocity, playerVVelocity);
+		player.move(playerHVelocity, playerVVelocity);
 
 
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
@@ -131,7 +133,7 @@ void arthur::arthurTestSFML()
 		
 
 		window.clear();
-		window.draw(shape);
+		window.draw(player.getGraphic());
 
 		window.draw(*testing_ptr); // This is also part of the mario code
 		
