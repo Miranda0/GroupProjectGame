@@ -3,6 +3,7 @@
 #include <string>
 #include "NPC.h"
 #include "Player.h"
+#include "Enemy3.h"
 
 
 using std::cout;
@@ -51,11 +52,7 @@ void arthur::arthurTestSFML()
 	*/
 
 	sf::Sprite* testing_ptr;
-	NPC testing;
-	sf::Texture text;
-	text.loadFromFile("Enemy1.png");
-	sf::Texture *text_ptr = &text;
-	testing.set_graphic(text);
+	Enemy1 testing;
 	testing_ptr = testing.get_graphic();
 
 
