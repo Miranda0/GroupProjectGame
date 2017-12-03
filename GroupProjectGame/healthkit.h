@@ -1,8 +1,6 @@
 #pragma once
 #include "Objects.h"
 
-
-
 class healthkit: public Object
 {
 public:
@@ -11,9 +9,6 @@ public:
 	healthkit();
 	~healthkit();
 	//int getHealthPts();
-	
-
-
 
 protected:
 private:

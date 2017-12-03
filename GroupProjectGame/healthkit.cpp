@@ -1,6 +1,6 @@
 #include "healthkit.h"
 
-healthkit::healthkit()
+healthkit::healthkit() : Object(5.0, 0)
 {
 	healthPts = 2;
 
