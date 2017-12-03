@@ -25,7 +25,9 @@ int main()
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
+	
 	Asteroid death;
+	healthkit health;
 	int time = 0;
 
 	// player variables
