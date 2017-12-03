@@ -30,7 +30,6 @@ int main()
 	Asteroid death;
 	
 	int time = 0;
-
 	// player variables
 	Player player;
 	player.setPosition(640, 600);
