@@ -45,6 +45,10 @@ int main()
 	debugMessage.setFillColor(sf::Color::White);
 	debugMessage.setCharacterSize(24);
 	debugMessage.setFont(font);
+	sf::Texture backgroundImage;
+	if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
+	sf::Sprite background(backgroundImage);
+	//https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1280x720.jpg
 
 	while (window.isOpen())
 	{
@@ -99,10 +103,6 @@ int main()
 
 
 		//slater edit
-		sf::Texture backgroundImage;
-		if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
-		sf::Sprite background(backgroundImage);
-		//https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1280x720.jpg
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 							   "player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
 							   "time(frames since start): " + std::to_string(time));
