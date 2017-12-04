@@ -113,7 +113,10 @@ int main()
 		b.movement();
 		c.movement();
 		d.movement();
-
+		a.shoot();
+		b.shoot();
+		c.shoot();
+		d.shoot();
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +

@@ -57,6 +57,9 @@
     <ClCompile Include="healthkit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Objects.h">
@@ -98,12 +101,18 @@
     <ClInclude Include="healthkit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="asteroid-big-0000.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Enemy1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Enemy1.5.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

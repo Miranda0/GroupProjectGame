@@ -1,6 +1,6 @@
 #pragma once
 #include "Objects.h"
-
+#include "Bullet.h"
 class NPC : protected Object
 {
 public:
@@ -18,10 +18,11 @@ public:
 	int get_direction();
 	void movement();
 	void shoot();
-	void virtual destroy();
+	void virtual destroy() = 0;
 
 protected:
 	int health;
 	float shoot_speed;
 	float direction;
+	Object* shot;
 };
