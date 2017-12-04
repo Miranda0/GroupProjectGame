@@ -3,11 +3,12 @@
 using std::cout;
 using std::endl;
 
-NPC::NPC():Object(0,0)
+NPC::NPC():Object(20,10)
 {
 	health = 0;
-	shoot_speed = 0;
+	shoot_speed = 1;
 	direction = 0;
+	shot = nullptr;
 }
 
 NPC::~NPC()
@@ -63,17 +64,28 @@ int NPC::get_direction()
 	return this->direction;
 }
 
-void NPC::movement_pattern()
+void NPC::movement()
 {
-
+	float PI = 3.14159;
+	float xMove;
+	float yMove;
+	float radDir = direction;
+	xMove = cos(radDir) * speed;
+	yMove = sin(radDir) * speed;
+	graphic->move(xMove, yMove);
 }
 
 void NPC::destroy() 
 {
 	
 }
-
+// call this everytime move happens in main and it should regulate itself
 void NPC::shoot()
 {
-
+	shoot_speed -= 1;
+	if (shoot_speed == 0)
+	{
+		//shot = *(Bullet((int)this->get_direction()));
+		shoot_speed = 5;
+	}
 }
