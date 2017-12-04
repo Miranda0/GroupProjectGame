@@ -16,12 +16,12 @@ public:
 	int get_health();
 	float get_shoot_speed();
 	int get_direction();
-	void movement_pattern();
+	void movement();
 	void shoot();
 	void virtual destroy();
 
 protected:
 	int health;
 	float shoot_speed;
-	int direction;
+	float direction;
 };

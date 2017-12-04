@@ -63,9 +63,15 @@ int NPC::get_direction()
 	return this->direction;
 }
 
-void NPC::movement_pattern()
+void NPC::movement()
 {
-
+	float PI = 3.14159;
+	float xMove;
+	float yMove;
+	float radDir = direction;
+	xMove = cos(radDir) * speed;
+	yMove = sin(radDir) * speed;
+	graphic->move(xMove, yMove);
 }
 
 void NPC::destroy() 
