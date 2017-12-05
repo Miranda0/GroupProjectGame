@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="asteroid-big-0000.png" />
+    <Image Include="bubble_explo4.png" />
     <Image Include="Enemy1.5.png" />
     <Image Include="Enemy1.png" />
   </ItemGroup>

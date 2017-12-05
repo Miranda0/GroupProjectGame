@@ -44,7 +44,12 @@ Enemy1::~Enemy1()
 
 void Enemy1::destroy()
 {
-	texture.loadFromFile("Enemydeath1.png");
-	graphic->setTexture(texture);
-
+	if (destroyed == false) {
+		texture.loadFromFile("bubble_explo4.png"); //Miranda editted this line because I couldn't find picture you were trying to open
+		graphic->setTexture(texture);
+		destroyed = true;
+	}
+	else {
+		// destroy object here after linked list of enemies implemented
+	}
 }

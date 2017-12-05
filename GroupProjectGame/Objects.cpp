@@ -4,6 +4,7 @@ Object::Object(float radius, float newSpeed) {
 	graphic = new sf::Sprite;
 	speed = newSpeed;
 	radius = radius;
+	destroyed = false;
 }
 
 Object::~Object() {
@@ -26,4 +27,20 @@ bool Object::collision(Object* other) { // assuming our hitboxes will be circles
 		crash = true;
 	}
 	return crash;
+}
+
+void Object::deleteAtEdge() {
+	sf::Vector2f place = graphic->getPosition();
+	if (place.x < 50) {
+		this->destroy();
+	}
+	else if (place.x > 1280) {
+		this->destroy();
+	}
+	else if (place.y < 0) {
+		this->destroy();
+	}
+	else if (place.y > 720) {
+		this->destroy();
+	}
 }
