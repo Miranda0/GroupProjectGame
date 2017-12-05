@@ -1,6 +1,6 @@
 #include "Bullet.h"
 
-Bullet::Bullet(int newDirection, float xPos, float yPos):Object(5, 5) {
+Bullet::Bullet(int newDirection, float xPos, float yPos):Object(5, 1) {
 	direction = newDirection;
 	texture.loadFromFile("spr_bullet_strip.png");
 	graphic->setTexture(texture);
