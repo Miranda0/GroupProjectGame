@@ -172,6 +172,7 @@
     <ClInclude Include="arthur.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\24581053_10211815882127623_39085008_n.png" />
     <Image Include="asteroid-big-0000.png" />
     <Image Include="bubble_explo4.png" />
     <Image Include="Enemy1.5.png" />

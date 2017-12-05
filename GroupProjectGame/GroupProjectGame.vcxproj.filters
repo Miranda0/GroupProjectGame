@@ -124,6 +124,9 @@
     <Image Include="bubble_explo4.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\24581053_10211815882127623_39085008_n.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf" />
