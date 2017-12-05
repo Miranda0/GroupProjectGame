@@ -7,7 +7,8 @@ using std::endl;
 
 void Andrew::testNPCcrap()
 {
-	Enemy1 a(1), b(2), c(3), d(4);
+	Enemy1 a, b, c, d;
+	
 	a.movement();
-
+	//testing testing
 }

@@ -66,7 +66,6 @@ int NPC::get_direction()
 
 void NPC::movement()
 {
-	float PI = 3.14159;
 	float xMove;
 	float yMove;
 	float radDir = direction;
@@ -80,12 +79,14 @@ void NPC::destroy()
 	
 }
 // call this everytime move happens in main and it should regulate itself
-void NPC::shoot()
+Bullet* NPC::shoot()
 {
 	shoot_speed -= 1;
 	if (shoot_speed == 0)
 	{
-		//shot = *(Bullet((int)this->get_direction()));
+
+		shot = (new Bullet((2), graphic->getPosition().x + 60, graphic->getPosition().y + 10));
 		shoot_speed = 5;
 	}
+	return shot;
 }

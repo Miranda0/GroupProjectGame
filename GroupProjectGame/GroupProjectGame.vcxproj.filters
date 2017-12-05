@@ -60,6 +60,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Objects.h">
@@ -104,6 +107,9 @@
     <ClInclude Include="Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="asteroid-big-0000.png">
@@ -113,6 +119,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Enemy1.5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bubble_explo4.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

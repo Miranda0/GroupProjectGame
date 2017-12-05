@@ -1,6 +1,7 @@
 // basic libraries
 #include <iostream>
-#include <string>						// strings are for yo-yos and cats only
+#include <string>// strings are for yo-yos and cats only
+#include <list>
 #include "arthur.h"
 #include "Asteroid.h"
 #include "Slater.h"
@@ -18,25 +19,29 @@ int main()
 {
 	cout << "Hello team" << endl;
 	cout << "Arthur was here..." << endl;
+	srand(time(NULL));
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
-
-	Enemy1 a(1), b(2), c(3), d(4);
-	a.movement();
-	b.movement();
-	c.movement();
-	d.movement();
-
-	// window settings
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
-	window.setFramerateLimit(60);
+	
+	int randEnemyGeneration = rand() % 5 + 1;
+	std::list<Enemy1*> enemy1List;
+	int enemy1Count = 0;
 
 	healthkit health;
 	Asteroid death;
+	// window settings
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+	window.setFramerateLimit(60);
+	window.setKeyRepeatEnabled(false);
+
+	
 	
 	int time = 0;
 	// player variables
+	std::list<Bullet*> playerBullets;
+	std::list<Bullet*> NPCBullets;
+	Bullet* b_ptr;
 	Player player;
 	player.setPosition(640, 600);
 	float playerHVelocity = 0.0;
@@ -46,6 +51,7 @@ int main()
 	bool pressedRight = false;
 	bool pressedUp = false;
 	bool pressedDown = false;
+	bool firing = false;
 
 	//debug
 	sf::Text debugMessage;
@@ -54,6 +60,8 @@ int main()
 	debugMessage.setFillColor(sf::Color::White);
 	debugMessage.setCharacterSize(24);
 	debugMessage.setFont(font);
+
+	// background code
 	sf::Texture backgroundImage;
 	if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
 	sf::Sprite background(backgroundImage);
@@ -61,8 +69,15 @@ int main()
 
 	while (window.isOpen())
 	{
+		
 		sf::Event event;
 		time++;
+		if (randEnemyGeneration == time && enemy1Count < 15) {
+			Enemy1* newEnemy = new Enemy1;
+			enemy1List.push_back(newEnemy);
+			enemy1Count++;
+			randEnemyGeneration = rand() % 30 + time;
+		}
 		while (window.pollEvent(event))
 		{
 
@@ -80,6 +95,11 @@ int main()
 				}
 				if (!pressedDown && event.key.code == sf::Keyboard::Down) {
 					pressedDown = true;
+				}
+				if (event.key.code == sf::Keyboard::Space) {
+					cout << "boom" << endl;
+					playerBullets.push_back(new Bullet(90, player.getGraphic().getPosition().x + 20, player.getGraphic().getPosition().y + 20));
+					//theOnlyBullet = new Bullet(90, player.getGraphic().getPosition().x, player.getGraphic().getPosition().y);
 				}
 			}
 			if (event.type == sf::Event::KeyReleased) 			// key release
@@ -109,31 +129,56 @@ int main()
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
 		death.moveObject();
-		a.movement();
-		b.movement();
-		c.movement();
-		d.movement();
-		a.shoot();
-		b.shoot();
-		c.shoot();
-		d.shoot();
+		for (auto const& e : enemy1List) {
+			e->movement();
+			e->deleteAtEdge();
+			b_ptr = e->shoot();
+			if (b_ptr != nullptr)
+			{
+				NPCBullets.push_back(b_ptr);
+			}
+		}
+
+		for (auto const& q : NPCBullets)
+		{
+			q->moveObject();
+		}
+
+		for (auto const& b : playerBullets) {
+			b->moveObject();
+		}
+		
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
 			"time(frames since start): " + std::to_string(time));
-		
-		
+
+		// collisions
+		if (player.checkCollision(death.getCollision())) {
+			// cout << "bOOMSD!" << endl; // debug
+
+		}
+		else {
+			// cout << endl;
+		}
 
 		// drawing stage
 		window.clear(); //12-2-17 slater
 		window.draw(background); //12-2-17 slater
+		for (auto const& b : playerBullets) {
+			window.draw(b->getGraphic());
+		}
+		for (auto const& q : NPCBullets)
+		{
+			window.draw(q->getGraphic());
+		}
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
 		window.draw(*health.getGraphic());
-		window.draw(*a.get_graphic());
-		window.draw(*b.get_graphic());
-		window.draw(*c.get_graphic());
-		window.draw(*d.get_graphic());
+		for (auto const& e : enemy1List) {
+			window.draw(*e->get_graphic());
+		}
+	
 		window.display();
 	}
 
