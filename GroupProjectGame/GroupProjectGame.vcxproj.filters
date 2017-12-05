@@ -130,6 +130,9 @@
     <Image Include="newlifekit.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\green-heart-smiley-1F49A.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf" />

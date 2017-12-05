@@ -24,17 +24,17 @@ healthkit::~healthkit()
 
 
 
-
 }
 
 
 void healthkit::destroy()
 {
-	
+	//this means I've hit the healthkit and a heart should appear
+	healthShape.loadFromFile("green-heart-smiley-1F49A.png");
+	graphic->setTexture(healthShape);
+
+	//need to set points to 2 for health kit, and collisions
 }
-
-//need to set points to 2 for health kit, and collisions
-
 
 sf::Sprite* healthkit::getGraphic()
 {

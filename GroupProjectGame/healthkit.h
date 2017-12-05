@@ -26,7 +26,7 @@ public:
 
 protected:
 private:
-	//int healthPts;
+	int healthPts;
 	sf::Texture healthShape;
 	int direction;
 	sf::RectangleShape healthHit;
