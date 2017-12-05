@@ -29,12 +29,6 @@ directories on their computer.
 void arthur::arthurTestSFML()
 {
 
-	Enemy1 a(1), b(2), c(3), d(4);
-	a.movement();
-	b.movement();
-	c.movement();
-	d.movement();
-
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
@@ -125,14 +119,6 @@ void arthur::arthurTestSFML()
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
 		ast1.moveObject();
-		a.movement();
-		b.movement();
-		c.movement();
-		d.movement();
-		a.shoot();
-		b.shoot();
-		c.shoot();
-		d.shoot();
 		//if (theOnlyBullet != nullptr) {
 		//	theOnlyBullet->moveObject();
 		//}
@@ -167,10 +153,6 @@ void arthur::arthurTestSFML()
 		// window.draw(ast1.getCollisionBox()); // debug
 		// window.draw(player.getCollisionBox()); // debug
 		window.draw(*health.getGraphic());
-		window.draw(*a.get_graphic());
-		window.draw(*b.get_graphic());
-		window.draw(*c.get_graphic());
-		window.draw(*d.get_graphic());
 		window.draw(debugMessage);
 		//if (theOnlyBullet != nullptr) {
 		//	window.draw(theOnlyBullet->getGraphic());

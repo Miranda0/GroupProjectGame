@@ -33,11 +33,13 @@ int main()
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
+	window.setKeyRepeatEnabled(false);
 
 	
 	
 	int time = 0;
 	// player variables
+	std::list<Bullet*> playerBullets;
 	Player player;
 	player.setPosition(640, 600);
 	float playerHVelocity = 0.0;
@@ -47,6 +49,7 @@ int main()
 	bool pressedRight = false;
 	bool pressedUp = false;
 	bool pressedDown = false;
+	bool firing = false;
 
 	//debug
 	sf::Text debugMessage;
@@ -55,6 +58,8 @@ int main()
 	debugMessage.setFillColor(sf::Color::White);
 	debugMessage.setCharacterSize(24);
 	debugMessage.setFont(font);
+
+	// background code
 	sf::Texture backgroundImage;
 	if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
 	sf::Sprite background(backgroundImage);
@@ -89,6 +94,11 @@ int main()
 				if (!pressedDown && event.key.code == sf::Keyboard::Down) {
 					pressedDown = true;
 				}
+				if (event.key.code == sf::Keyboard::Space) {
+					cout << "boom" << endl;
+					playerBullets.push_back(new Bullet(90, player.getGraphic().getPosition().x + 20, player.getGraphic().getPosition().y + 20));
+					//theOnlyBullet = new Bullet(90, player.getGraphic().getPosition().x, player.getGraphic().getPosition().y);
+				}
 			}
 			if (event.type == sf::Event::KeyReleased) 			// key release
 			{
@@ -122,16 +132,31 @@ int main()
 			e->deleteAtEdge();
 			e->shoot();
 		}
+
+		for (auto const& b : playerBullets) {
+			b->moveObject();
+		}
 		
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
 			"time(frames since start): " + std::to_string(time));
 
+		// collisions
+		if (player.checkCollision(death.getCollision())) {
+			// cout << "bOOMSD!" << endl; // debug
+
+		}
+		else {
+			// cout << endl;
+		}
 
 		// drawing stage
 		window.clear(); //12-2-17 slater
 		window.draw(background); //12-2-17 slater
+		for (auto const& b : playerBullets) {
+			window.draw(b->getGraphic());
+		}
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
 		window.draw(*health.getGraphic());
