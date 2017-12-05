@@ -6,6 +6,4 @@ class arthur
 {
 public:
 	void arthurTestSFML();
-
-
 };

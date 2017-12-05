@@ -1,10 +1,13 @@
 #include "arthur.h"
 #include <iostream>
 #include <string>
+#include <list>
 #include "NPC.h"
 #include "Player.h"
 #include "Enemy3.h"
 #include "Andrew.h"
+#include "healthkit.h"
+#include "Asteroid.h"
 
 using std::cout;
 using std::endl;
@@ -25,22 +28,28 @@ directories on their computer.
 
 void arthur::arthurTestSFML()
 {
+
+	Enemy1 a(1), b(2), c(3), d(4);
+	a.movement();
+	b.movement();
+	c.movement();
+	d.movement();
+
+	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
-	// sf::CircleShape shape(50.f);
-	Player player;
-	
-	player.setPosition(640, 600);
+	window.setKeyRepeatEnabled(false);
 
+	healthkit health;
+	// Asteroid death;
+	Asteroid ast1(640.0f, 360.0f, 0.5f, 180);
 
-	Andrew c;
-	c.testNPCcrap();
-
-
-	// time 
 	int time = 0;
-
 	// player variables
+	std::list<Bullet*> bullets;
+	Bullet* theOnlyBullet = nullptr;
+	Player player;
+	player.setPosition(640, 600);
 	float playerHVelocity = 0.0;
 	float playerVVelocity = 0.0;
 	float playerSpeed = 4.0;
@@ -48,14 +57,7 @@ void arthur::arthurTestSFML()
 	bool pressedRight = false;
 	bool pressedUp = false;
 	bool pressedDown = false;
-	/*
-	Feel free to comment this part out to get rid of the random mario
-	*/
-
-	sf::Sprite* testing_ptr;
-	Enemy1 testing;
-	testing_ptr = testing.get_graphic();
-
+	bool firing = false;
 
 	//debug
 	sf::Text debugMessage;
@@ -64,15 +66,14 @@ void arthur::arthurTestSFML()
 	debugMessage.setFillColor(sf::Color::White);
 	debugMessage.setCharacterSize(24);
 	debugMessage.setFont(font);
+	sf::Texture backgroundImage;
+	if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
+	sf::Sprite background(backgroundImage);
+	//https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1280x720.jpg
 
-	
-
-	// this is the main game loop
-	// events in this loop will happen ~60 times a second
 	while (window.isOpen())
 	{
 		sf::Event event;
-
 		time++;
 		while (window.pollEvent(event))
 		{
@@ -91,9 +92,14 @@ void arthur::arthurTestSFML()
 				if (!pressedDown && event.key.code == sf::Keyboard::Down) {
 					pressedDown = true;
 				}
+				if (event.key.code == sf::Keyboard::Space) {
+					cout << "boom" << endl;
+					bullets.push_back(new Bullet(90, player.getGraphic().getPosition().x + 20, player.getGraphic().getPosition().y + 20));
+					//theOnlyBullet = new Bullet(90, player.getGraphic().getPosition().x, player.getGraphic().getPosition().y);
+				}
 			}
 			if (event.type == sf::Event::KeyReleased) 			// key release
-				{
+			{
 				if (pressedLeft && event.key.code == sf::Keyboard::Left) {
 					pressedLeft = false;
 				}
@@ -108,30 +114,71 @@ void arthur::arthurTestSFML()
 				}
 			}
 
-			// exit functions
 			if (event.type == sf::Event::Closed)
 				window.close();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				window.close();
 		}
-		// sum the movement together
+
+		// sum movements
 		playerHVelocity = (pressedRight - pressedLeft) * playerSpeed;
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
+		ast1.moveObject();
+		a.movement();
+		b.movement();
+		c.movement();
+		d.movement();
+		a.shoot();
+		b.shoot();
+		c.shoot();
+		d.shoot();
+		//if (theOnlyBullet != nullptr) {
+		//	theOnlyBullet->moveObject();
+		//}
+		for (auto const& b : bullets) {
+			b->moveObject();
+		}
 
-
+		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
-							   "player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
-							   "time(frames since start): " + std::to_string(time));
+			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
+			"time(frames since start): " + std::to_string(time) + '\n' +
+			"player/asteroid collision = " + std::to_string(player.checkCollision(ast1.getCollision())));
+
+		// collisions
+		if (player.checkCollision(ast1.getCollision())) {
+			// cout << "bOOMSD!" << endl; // debug
+
+		}
+		else {
+			// cout << endl;
+		}
 		
 
-		window.clear();
+		// drawing stage
+		window.clear(); //12-2-17 slater
+		window.draw(background); //12-2-17 slater
+		for (auto const& b : bullets) {
+			window.draw(b->getGraphic());
+		}
 		window.draw(player.getGraphic());
-
-		window.draw(*testing_ptr); // This is also part of the mario code
-		
-		
+		window.draw(*ast1.getGraphic());
+		// window.draw(ast1.getCollisionBox()); // debug
+		// window.draw(player.getCollisionBox()); // debug
+		window.draw(*health.getGraphic());
+		window.draw(*a.get_graphic());
+		window.draw(*b.get_graphic());
+		window.draw(*c.get_graphic());
+		window.draw(*d.get_graphic());
 		window.draw(debugMessage);
+		//if (theOnlyBullet != nullptr) {
+		//	window.draw(theOnlyBullet->getGraphic());
+		//}
+
 		window.display();
+
+
 	}
+
 }
