@@ -1,6 +1,7 @@
 // basic libraries
 #include <iostream>
-#include <string>						// strings are for yo-yos and cats only
+#include <string>// strings are for yo-yos and cats only
+#include <list>
 #include "arthur.h"
 #include "Asteroid.h"
 #include "Slater.h"
@@ -18,21 +19,22 @@ int main()
 {
 	cout << "Hello team" << endl;
 	cout << "Arthur was here..." << endl;
+	srand(time(NULL));
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
-	Enemy1 alex, bob, casey, darrin;
-	alex.movement();
-	bob.movement();
-	casey.movement();
-	darrin.movement();
+	
+	int randEnemyGeneration = rand() % 5 + 1;
+	std::list<Enemy1*> enemy1List;
+	int enemy1Count = 0;
 
+	healthkit health;
+	Asteroid death;
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
 
-	healthkit health;
-	Asteroid death;
+	
 	
 	int time = 0;
 	// player variables
@@ -60,9 +62,15 @@ int main()
 
 	while (window.isOpen())
 	{
-
+		
 		sf::Event event;
 		time++;
+		if (randEnemyGeneration == time && enemy1Count < 15) {
+			Enemy1* newEnemy = new Enemy1;
+			enemy1List.push_back(newEnemy);
+			enemy1Count++;
+			randEnemyGeneration = rand() % 30 + time;
+		}
 		while (window.pollEvent(event))
 		{
 
@@ -109,15 +117,12 @@ int main()
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
 		death.moveObject();
-		alex.movement();
-		alex.deleteAtEdge();
-		bob.movement();
-		casey.movement();
-		darrin.movement();
-		alex.shoot();
-		bob.shoot();
-		casey.shoot();
-		darrin.shoot();
+		for(auto const& e: enemy1List) {
+			e->movement();
+			e->deleteAtEdge();
+			e->shoot();
+		}
+		
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
@@ -130,10 +135,10 @@ int main()
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
 		window.draw(*health.getGraphic());
-		window.draw(*alex.get_graphic());
-		window.draw(*bob.get_graphic());
-		window.draw(*casey.get_graphic());
-		window.draw(*darrin.get_graphic());
+		for (auto const& e : enemy1List) {
+			window.draw(*e->get_graphic());
+		}
+	
 		window.display();
 	}
 
