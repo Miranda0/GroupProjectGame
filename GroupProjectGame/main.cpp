@@ -163,6 +163,7 @@ int main()
 		for (auto const& e : enemy1List) {
 			window.draw(*e->get_graphic());
 		}
+		window.draw(debugMessage);
 	
 		window.display();
 	}
