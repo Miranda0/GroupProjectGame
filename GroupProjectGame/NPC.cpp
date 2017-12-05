@@ -1,5 +1,5 @@
 #include "NPC.h"
-#include "Bullet.h"
+//#include "Bullet.h"
 using std::cout;
 using std::endl;
 
