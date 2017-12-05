@@ -10,9 +10,11 @@ protected:
 	sf::Sprite* graphic;
 	sf::Texture texture;
 	void virtual destroy() = 0;
+	bool destroyed;
 public:
 	Object(float radius, float newSpeed);
 	~Object();
 	void setSpeed(float newSpeed);
 	virtual bool collision(Object* other);
+	void deleteAtEdge();
 };

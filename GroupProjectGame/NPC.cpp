@@ -66,7 +66,6 @@ int NPC::get_direction()
 
 void NPC::movement()
 {
-	float PI = 3.14159;
 	float xMove;
 	float yMove;
 	float radDir = direction;

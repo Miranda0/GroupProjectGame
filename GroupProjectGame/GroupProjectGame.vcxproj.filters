@@ -121,6 +121,9 @@
     <Image Include="Enemy1.5.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="bubble_explo4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf" />

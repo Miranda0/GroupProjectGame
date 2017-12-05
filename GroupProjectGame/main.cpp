@@ -21,12 +21,11 @@ int main()
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
-
-	Enemy1 a(1), b(2), c(3), d(4);
-	a.movement();
-	b.movement();
-	c.movement();
-	d.movement();
+	Enemy1 alex, bob, casey, darrin;
+	alex.movement();
+	bob.movement();
+	casey.movement();
+	darrin.movement();
 
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
@@ -61,6 +60,7 @@ int main()
 
 	while (window.isOpen())
 	{
+
 		sf::Event event;
 		time++;
 		while (window.pollEvent(event))
@@ -109,14 +109,15 @@ int main()
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
 		death.moveObject();
-		a.movement();
-		b.movement();
-		c.movement();
-		d.movement();
-		a.shoot();
-		b.shoot();
-		c.shoot();
-		d.shoot();
+		alex.movement();
+		alex.deleteAtEdge();
+		bob.movement();
+		casey.movement();
+		darrin.movement();
+		alex.shoot();
+		bob.shoot();
+		casey.shoot();
+		darrin.shoot();
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
@@ -129,10 +130,10 @@ int main()
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
 		window.draw(*health.getGraphic());
-		window.draw(*a.get_graphic());
-		window.draw(*b.get_graphic());
-		window.draw(*c.get_graphic());
-		window.draw(*d.get_graphic());
+		window.draw(*alex.get_graphic());
+		window.draw(*bob.get_graphic());
+		window.draw(*casey.get_graphic());
+		window.draw(*darrin.get_graphic());
 		window.display();
 	}
 

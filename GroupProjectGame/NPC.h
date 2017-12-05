@@ -1,7 +1,7 @@
 #pragma once
 #include "Objects.h"
 #include "Bullet.h"
-class NPC : protected Object
+class NPC : public Object  //Miranda editted this because I couldn't access functions in object
 {
 public:
 	NPC();
@@ -24,5 +24,5 @@ protected:
 	int health;
 	float shoot_speed;
 	float direction;
-	Object* shot;
+	Object* shot; // why isn't this a bullet?
 };
