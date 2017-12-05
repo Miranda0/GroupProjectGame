@@ -6,7 +6,7 @@
 #include "Slater.h"
 #include "Player.h"
 #include "healthkit.h"
-
+#include "Andrew.h"
 // SFML libraries
 #include <SFML/Graphics.hpp>
 
@@ -21,6 +21,12 @@ int main()
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
+
+	Enemy1 a(1), b(2), c(3), d(4);
+	a.movement();
+	b.movement();
+	c.movement();
+	d.movement();
 
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
@@ -103,8 +109,14 @@ int main()
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
 		death.moveObject();
-
-
+		a.movement();
+		b.movement();
+		c.movement();
+		d.movement();
+		a.shoot();
+		b.shoot();
+		c.shoot();
+		d.shoot();
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
@@ -117,6 +129,10 @@ int main()
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
 		window.draw(*health.getGraphic());
+		window.draw(*a.get_graphic());
+		window.draw(*b.get_graphic());
+		window.draw(*c.get_graphic());
+		window.draw(*d.get_graphic());
 		window.display();
 	}
 

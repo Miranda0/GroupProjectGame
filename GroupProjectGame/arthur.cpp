@@ -4,7 +4,7 @@
 #include "NPC.h"
 #include "Player.h"
 #include "Enemy3.h"
-
+#include "Andrew.h"
 
 using std::cout;
 using std::endl;
@@ -33,7 +33,8 @@ void arthur::arthurTestSFML()
 	player.setPosition(640, 600);
 
 
-	
+	Andrew c;
+	c.testNPCcrap();
 
 
 	// time 
@@ -52,7 +53,7 @@ void arthur::arthurTestSFML()
 	*/
 
 	sf::Sprite* testing_ptr;
-	Enemy1 testing;
+	Enemy1 testing(1);
 	testing_ptr = testing.get_graphic();
 
 
