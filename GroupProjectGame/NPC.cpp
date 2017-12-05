@@ -1,5 +1,5 @@
 #include "NPC.h"
-#include "Bullet.h"
+
 using std::cout;
 using std::endl;
 
@@ -85,7 +85,7 @@ Bullet* NPC::shoot()
 	if (shoot_speed == 0)
 	{
 
-		shot = (new Bullet((1.5*3.14159), graphic->getPosition().x + 10, graphic->getPosition().y + 10));
+		shot = (new Bullet((2), graphic->getPosition().x + 60, graphic->getPosition().y + 10));
 		shoot_speed = 5;
 	}
 	return shot;
