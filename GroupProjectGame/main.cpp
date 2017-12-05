@@ -21,8 +21,7 @@ int main()
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
-
-	Enemy1 alex(1), bob(2), casey(3), darrin(4);
+	Enemy1 alex, bob, casey, darrin;
 	alex.movement();
 	bob.movement();
 	casey.movement();
@@ -61,6 +60,7 @@ int main()
 
 	while (window.isOpen())
 	{
+
 		sf::Event event;
 		time++;
 		while (window.pollEvent(event))

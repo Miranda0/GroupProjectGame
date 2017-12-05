@@ -53,7 +53,7 @@ void arthur::arthurTestSFML()
 	*/
 
 	sf::Sprite* testing_ptr;
-	Enemy1 testing(1);
+	Enemy1 testing;
 	testing_ptr = testing.get_graphic();
 
 
