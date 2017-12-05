@@ -1,5 +1,5 @@
 #include "NPC.h"
-
+#include "Bullet.h"
 using std::cout;
 using std::endl;
 
@@ -79,12 +79,14 @@ void NPC::destroy()
 	
 }
 // call this everytime move happens in main and it should regulate itself
-void NPC::shoot()
+Bullet* NPC::shoot()
 {
 	shoot_speed -= 1;
 	if (shoot_speed == 0)
 	{
-		//shot = *(Bullet((int)this->get_direction()));
+
+		shot = (new Bullet((1.5*3.14159), graphic->getPosition().x + 10, graphic->getPosition().y + 10));
 		shoot_speed = 5;
 	}
+	return shot;
 }

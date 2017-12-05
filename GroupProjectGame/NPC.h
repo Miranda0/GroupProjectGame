@@ -17,12 +17,12 @@ public:
 	float get_shoot_speed();
 	int get_direction();
 	void movement();
-	void shoot();
+	Bullet* shoot();
 	void virtual destroy() = 0;
 
 protected:
 	int health;
 	float shoot_speed;
 	float direction;
-	Object* shot; // why isn't this a bullet?
+	Bullet* shot; // why isn't this a bullet?
 };

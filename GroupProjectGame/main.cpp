@@ -40,6 +40,8 @@ int main()
 	int time = 0;
 	// player variables
 	std::list<Bullet*> playerBullets;
+	std::list<Bullet*> NPCBullets;
+	Bullet* b_ptr;
 	Player player;
 	player.setPosition(640, 600);
 	float playerHVelocity = 0.0;
@@ -127,10 +129,19 @@ int main()
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
 		death.moveObject();
-		for(auto const& e: enemy1List) {
+		for (auto const& e : enemy1List) {
 			e->movement();
 			e->deleteAtEdge();
-			e->shoot();
+			b_ptr = e->shoot();
+			if (b_ptr != nullptr)
+			{
+				NPCBullets.push_back(b_ptr);
+			}
+		}
+
+		for (auto const& q : NPCBullets)
+		{
+			q->moveObject();
 		}
 
 		for (auto const& b : playerBullets) {
@@ -156,6 +167,10 @@ int main()
 		window.draw(background); //12-2-17 slater
 		for (auto const& b : playerBullets) {
 			window.draw(b->getGraphic());
+		}
+		for (auto const& q : NPCBullets)
+		{
+			window.draw(q->getGraphic());
 		}
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
