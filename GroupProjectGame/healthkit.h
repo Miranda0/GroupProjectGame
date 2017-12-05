@@ -1,6 +1,7 @@
 #pragma once
 #include "Objects.h"
 #include <math.h>
+#include "Collider.h"
 
 
 
@@ -15,7 +16,9 @@ public:
 	//int getHealthPts();
 	void virtual destroy();
 	sf::Sprite* getGraphic();
-
+	Collider getCollision() { return Collider(healthHit);}
+	//need to check for collision
+	//if collision, add 2 points to health
 
 	
 
@@ -24,8 +27,9 @@ public:
 protected:
 private:
 	//int healthPts;
-	sf::Texture texture;
+	sf::Texture healthShape;
 	int direction;
+	sf::RectangleShape healthHit;
 
 };
 

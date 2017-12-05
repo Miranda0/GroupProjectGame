@@ -5,19 +5,28 @@ using std::endl;
 healthkit::healthkit() :Object(10, 0)
 {
 	srand(time(NULL));
-	int position = rand() % 1280;
-	texture.loadFromFile("newlifekit.png");
-	graphic->setPosition(position, 0);
-	graphic->setTexture(texture);
-	direction = rand() % 720;
+	healthShape.loadFromFile("newlifekit.png");
+	graphic->setTexture(healthShape);
+	healthHit.setSize(sf::Vector2f(20.0f, 20.0f));
+	
+
+	int position = 600;
+	graphic->setPosition(position, 240);
+	
 	std::cout << "this worked and the life kit has saved someone" << std::endl;
+
+	
 
 }
 
 healthkit::~healthkit()
 {
 
+
+
+
 }
+
 
 void healthkit::destroy()
 {
@@ -32,9 +41,10 @@ sf::Sprite* healthkit::getGraphic()
 	return graphic;
 }
 
-void collisionDetect()
+void collisionDetect() 
 {
 	
+
 }
 
 
