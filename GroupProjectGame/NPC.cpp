@@ -86,7 +86,7 @@ Bullet* NPC::shoot()
 	{
 
 		shot = (new Bullet((2), graphic->getPosition().x + 60, graphic->getPosition().y + 10));
-		shoot_speed = 5;
+		shoot_speed = 60;
 	}
 	return shot;
 }
