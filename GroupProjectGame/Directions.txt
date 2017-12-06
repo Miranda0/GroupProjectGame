@@ -1,0 +1,15 @@
+Made by:
+Arthur Smith
+Miranda Stoddard
+Andrew VanIderstine
+Slater Weinstock
+
+
+Instructions for Player:
+
+
+Using the arrow keys, you can direct where you are flying in space.  Try to miss the asteroids as they do damage to your health, in addition to enemy ships shooting or hitting you.
+You can heal by pressing 'h'.
+To shoot, use the space bar and hit the enemy ships.
+If you lose all your health, you will die and the game will exit.
+To start the game, build the project.

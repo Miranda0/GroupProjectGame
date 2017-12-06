@@ -146,4 +146,9 @@
   <ItemGroup>
     <Font Include="arial.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Directions.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
