@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "healthkit.h"
 #include "Andrew.h"
+#include "HealthStatus.h"
 
 // SFML libraries
 #include <SFML/Graphics.hpp>
@@ -33,7 +34,9 @@ int main()
 
 	// entities
 	int randEnemyGeneration = rand() % 5 + 1;
+	int randAsteroid = rand() % 30;
 	std::list<Enemy1*> enemy1List;
+	std::list<Asteroid*> asteroidList;
 	int enemy1Count = 0;
 	healthkit health;	// debug
 	Asteroid death;		// debug
@@ -45,6 +48,7 @@ int main()
 	int position_in_list = 0;
 	std::list<Bullet*>::iterator it1, it2;
 	std::list<Enemy1*>::iterator stepper;
+	std::list<Asteroid*>::iterator iter;
 	Bullet* b_ptr;
 	Player player;
 	player.setPosition(640, 600);
@@ -70,6 +74,10 @@ int main()
 	if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
 	sf::Sprite background(backgroundImage);
 	//https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1280x720.jpg
+
+	//health bar
+	healthStatus healthBar;
+	healthBar.getMaxHealth();
 
 	while (window.isOpen())
 	{
@@ -130,9 +138,11 @@ int main()
 		for (auto const& b : playerBullets) {
 			b->moveObject();
 		}
+		for (auto const& a : asteroidList) {
+			a->moveObject();
+		}
 		for (auto const& e : enemy1List) {
 			e->movement();
-			e->deleteAtEdge();
 			b_ptr = e->shoot();
 			if (b_ptr != nullptr)
 			{
@@ -149,6 +159,11 @@ int main()
 			randEnemyGeneration = rand() % 30 + time + 60;
 		}
 
+		if (randAsteroid < time) {
+			Asteroid* newAst = new Asteroid;
+			asteroidList.push_back(newAst);
+			randAsteroid = rand() % 30 + time + 60;
+		}
 
 		// removing off screen objects
 		bool allChecked = false;
@@ -189,6 +204,44 @@ int main()
 			}
 		}
 
+		bool playerChecked = false;
+		while (playerChecked == false && playerBullets.size() > 0) {	// remove player's bullets
+			it2 = playerBullets.begin();
+			for (auto const& p : playerBullets)
+			{
+
+				if (p->deleteAtEdge())
+				{
+					playerChecked = false;
+					break;
+				}
+				it2++;
+				playerChecked = true;
+			}
+			if (playerChecked == false) {
+				playerBullets.erase(it2);
+			}
+		}
+
+		bool asteroidChecked = false;
+		while (asteroidChecked == false && asteroidList.size() > 0) {	// remove player's bullets
+			iter = asteroidList.begin();
+			for (auto const& a : asteroidList)
+			{
+
+				if (a->deleteAtEdge())
+				{
+					asteroidChecked = false;
+					break;
+				}
+				iter++;
+				asteroidChecked = true;
+			}
+			if (asteroidChecked == false) {
+				asteroidList.erase(iter);
+			}
+		}
+
 		// this should be working neither remove nor erase works when I pass things in. 
 		// using the list and nodes I made might work better but I don't want
 		// to make that executive decision without discussion before hand. 
@@ -223,6 +276,9 @@ int main()
 		}
 		for (auto const& e : enemy1List) {
 			window.draw(*e->get_graphic());
+		}
+		for (auto const& a : asteroidList) {
+			window.draw(*a->getGraphic());
 		}
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
