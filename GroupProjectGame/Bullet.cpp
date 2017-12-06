@@ -2,7 +2,7 @@
 
 Bullet::Bullet(int newDirection, float xPos, float yPos):Object(5, 1) {
 	direction = newDirection;
-	texture.loadFromFile("spr_bullet_strip.png");
+	texture.loadFromFile("24581053_10211815882127623_39085008_n.png");
 	graphic->setTexture(texture);
 	graphic->rotate(90);
 	graphic->setPosition(xPos, yPos);

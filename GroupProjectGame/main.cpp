@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "healthkit.h"
 #include "Andrew.h"
+
 // SFML libraries
 #include <SFML/Graphics.hpp>
 
@@ -41,6 +42,8 @@ int main()
 	// player variables
 	std::list<Bullet*> playerBullets;
 	std::list<Bullet*> NPCBullets;
+	int position_in_list = 0;
+	std::list<Bullet*>::iterator it1, it2;
 	Bullet* b_ptr;
 	Player player;
 	player.setPosition(640, 600);
@@ -142,7 +145,22 @@ int main()
 		for (auto const& q : NPCBullets)
 		{
 			q->moveObject();
+
 		}
+		// this should be working neither remove nor erase works when I pass things in. using the list and nodes I made might work better but I don't want
+		// to make that executive decision without discussion before hand. If you guys think that'll work best I am 90% sure my nodes are set up to do what
+		//we are using this other list to do just use insert front or yell at me and I can walk throught it with y'all.
+
+		/*for (auto const& q : NPCBullets)
+		{
+			it1 = NPCBullets.begin();
+			if (q->deleteAtEdge())
+			{
+				NPCBullets.erase(it1);
+				break;
+			}
+			it1++;
+		}*/
 
 		for (auto const& b : playerBullets) {
 			b->moveObject();

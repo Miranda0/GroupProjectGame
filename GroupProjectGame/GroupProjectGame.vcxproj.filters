@@ -108,7 +108,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -124,7 +124,13 @@
     <Image Include="bubble_explo4.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="spr_bullet_strip.png">
+    <Image Include="..\..\..\..\Desktop\24581053_10211815882127623_39085008_n.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="newlifekit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\green-heart-smiley-1F49A.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
