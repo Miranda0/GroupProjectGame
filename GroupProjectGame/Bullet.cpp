@@ -7,7 +7,7 @@ Bullet::Bullet(int newDirection, float xPos, float yPos):Object(5, 8) {
 	graphic->rotate(90);
 	graphic->setPosition(xPos, yPos);
 	collisionBox.setPosition(xPos, yPos);
-	collisionBox.setSize(sf::Vector2f(50.0f, 50.0f));
+	collisionBox.setSize(sf::Vector2f(10.0f, 10.0f));
 	collisionBox.setFillColor(sf::Color::White);
 }
 

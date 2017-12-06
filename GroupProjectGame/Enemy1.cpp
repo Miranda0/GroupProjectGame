@@ -15,7 +15,7 @@ Enemy1::Enemy1():NPC()
 	direction = 3.14159 * .5;
 	float position = rand() % 1280;
 	graphic->setPosition(position, 0);
-	this->collisionBox.setPosition(position + 10, 10);
+	this->collisionBox.setPosition(position + 50, 10);
 }
 
 
