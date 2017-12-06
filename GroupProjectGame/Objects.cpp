@@ -31,7 +31,7 @@ bool Object::collision(Object* other) { // assuming our hitboxes will be circles
 
 void Object::deleteAtEdge() {
 	sf::Vector2f place = graphic->getPosition();
-	if (place.x < 50) {
+	if (place.x < 0) {
 		this->destroy();
 	}
 	else if (place.x > 1280) {

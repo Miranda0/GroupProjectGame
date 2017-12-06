@@ -124,6 +124,9 @@
     <Image Include="bubble_explo4.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="spr_bullet_strip.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf" />

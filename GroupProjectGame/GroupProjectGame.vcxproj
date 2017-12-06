@@ -176,6 +176,7 @@
     <Image Include="bubble_explo4.png" />
     <Image Include="Enemy1.5.png" />
     <Image Include="Enemy1.png" />
+    <Image Include="spr_bullet_strip.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf" />
