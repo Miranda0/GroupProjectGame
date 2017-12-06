@@ -24,22 +24,21 @@ int main()
 
 	//arthur a;
 	//a.arthurTestSFML(); // comment out or duplicate if you want to try some stuff out and my code is too messy
-	
-	int randEnemyGeneration = rand() % 5 + 1;
-	std::list<Enemy1*> enemy1List;
-	int enemy1Count = 0;
 
-	healthkit health;
-	Asteroid death;
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
 	window.setKeyRepeatEnabled(false);
-
-	
-	
 	int time = 0;
-	// player variables
+
+	// entities
+	int randEnemyGeneration = rand() % 5 + 1;
+	std::list<Enemy1*> enemy1List;
+	int enemy1Count = 0;
+	healthkit health;	// debug
+	Asteroid death;		// debug
+
+						// player variables
 	std::list<Bullet*> playerBullets;
 	std::list<Bullet*> NPCBullets;
 	int bulletCount = 0;
@@ -58,7 +57,7 @@ int main()
 	bool pressedDown = false;
 	bool firing = false;
 
-	//debug
+	//debug (maybe use this for player health?)
 	sf::Text debugMessage;
 	sf::Font font;
 	font.loadFromFile("arial.ttf");
@@ -74,18 +73,10 @@ int main()
 
 	while (window.isOpen())
 	{
-		
 		sf::Event event;
 		time++;
-		if (randEnemyGeneration == time && enemy1Count < 15) {
-			Enemy1* newEnemy = new Enemy1;
-			enemy1List.push_back(newEnemy);
-			enemy1Count++;
-			randEnemyGeneration = rand() % 30 + time;
-		}
 		while (window.pollEvent(event))
 		{
-
 			// player controls that should be better
 			if (event.type == sf::Event::KeyPressed)			// key press
 			{
@@ -104,7 +95,6 @@ int main()
 				if (event.key.code == sf::Keyboard::Space) {
 					cout << "boom" << endl;
 					playerBullets.push_back(new Bullet(90, player.getGraphic().getPosition().x + 20, player.getGraphic().getPosition().y + 20));
-					//theOnlyBullet = new Bullet(90, player.getGraphic().getPosition().x, player.getGraphic().getPosition().y);
 				}
 			}
 			if (event.type == sf::Event::KeyReleased) 			// key release
@@ -134,6 +124,12 @@ int main()
 		playerVVelocity = ((pressedDown * 1.5) - (pressedUp)) * playerSpeed * !(pressedUp && pressedDown);
 		player.move(playerHVelocity, playerVVelocity);
 		death.moveObject();
+		for (auto const& q : NPCBullets) {
+			q->moveObject();
+		}
+		for (auto const& b : playerBullets) {
+			b->moveObject();
+		}
 		for (auto const& e : enemy1List) {
 			e->movement();
 			e->deleteAtEdge();
@@ -145,39 +141,36 @@ int main()
 			}
 		}
 
-		for (auto const& q : NPCBullets)
-		{
-			q->moveObject();
-
+		// random generation of entities
+		if (randEnemyGeneration < time && enemy1List.size() < 15) {
+			Enemy1* newEnemy = new Enemy1;
+			enemy1List.push_back(newEnemy);
+			enemy1Count++;
+			randEnemyGeneration = rand() % 30 + time + 60;
 		}
-		// this should be working neither remove nor erase works when I pass things in. using the list and nodes I made might work better but I don't want
-		// to make that executive decision without discussion before hand. If you guys think that'll work best I am 90% sure my nodes are set up to do what
-		//we are using this other list to do just use insert front or yell at me and I can walk throught it with y'all.
+
+
+		// removing off screen objects
 		bool allChecked = false;
-		while (allChecked = false) {
+		while (allChecked == false && NPCBullets.size() > 0) {	// remove enemy bullets
 			it1 = NPCBullets.begin();
 			for (auto const& q : NPCBullets)
 			{
 
-					if (q->deleteAtEdge())
-					{
-						allChecked = false;
-						break;
-					}
-					it1++;
-					allChecked = true;
+				if (q->deleteAtEdge())
+				{
+					allChecked = false;
+					break;
 				}
+				it1++;
+				allChecked = true;
+			}
 			if (allChecked == false) {
 				NPCBullets.erase(it1);
 			}
 		}
-
-		for (auto const& b : playerBullets) {
-			b->moveObject();
-		}
-		
 		bool enemyChecked = false;
-		while (allChecked = false) {
+		while (enemyChecked == false && enemy1List.size() > 0) {	// remove enemies
 			stepper = enemy1List.begin();
 			for (auto const& e : enemy1List)
 			{
@@ -196,9 +189,17 @@ int main()
 			}
 		}
 
+		// this should be working neither remove nor erase works when I pass things in. 
+		// using the list and nodes I made might work better but I don't want
+		// to make that executive decision without discussion before hand. 
+		// If you guys think that'll work best I am 90% sure my nodes are set up to do what
+		// we are using this other list to do just use insert front or yell at me and I can 
+		// walk throught it with y'all.
+
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
-			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
+			"NPCBullets.size() =  " + std::to_string(NPCBullets.size()) + '\n' +
+			"Enemy1List.size() =  " + std::to_string(enemy1List.size()) + '\n' +
 			"time(frames since start): " + std::to_string(time));
 
 		// collisions
@@ -220,19 +221,15 @@ int main()
 		{
 			window.draw(q->getGraphic());
 		}
-		window.draw(player.getGraphic());
-		window.draw(*death.getGraphic());
-		window.draw(*health.getGraphic());
 		for (auto const& e : enemy1List) {
 			window.draw(*e->get_graphic());
 		}
+		window.draw(player.getGraphic());
+		window.draw(*death.getGraphic());
+		window.draw(*health.getGraphic());
 		window.draw(debugMessage);
-	
+
 		window.display();
 	}
-
-
-
-
 	return 0;
 }
