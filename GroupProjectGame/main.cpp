@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "healthkit.h"
 #include "Andrew.h"
+#include "HealthStatus.h"
 
 // SFML libraries
 #include <SFML/Graphics.hpp>
@@ -73,6 +74,10 @@ int main()
 	if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
 	sf::Sprite background(backgroundImage);
 	//https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1280x720.jpg
+
+	//health bar
+	healthStatus healthBar;
+	healthBar.getMaxHealth();
 
 	while (window.isOpen())
 	{
