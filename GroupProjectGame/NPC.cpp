@@ -9,7 +9,7 @@ NPC::NPC():Object(20,10)
 	shoot_speed = 1;
 	direction = 0;
 	shot = nullptr;
-	collisionBox.setSize(sf::Vector2f(50.0f, 50.0f));
+	collisionBox.setSize(sf::Vector2f(70.0f, 70.0f));
 	collisionBox.setFillColor(sf::Color::White);
 }
 
