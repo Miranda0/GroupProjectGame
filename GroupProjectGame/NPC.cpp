@@ -82,6 +82,7 @@ void NPC::destroy()
 Bullet* NPC::shoot()
 {
 	shoot_speed -= 1;
+	shot = nullptr;
 	if (shoot_speed == 0)
 	{
 

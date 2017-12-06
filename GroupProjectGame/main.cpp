@@ -42,6 +42,7 @@ int main()
 	// player variables
 	std::list<Bullet*> playerBullets;
 	std::list<Bullet*> NPCBullets;
+	int bulletCount = 0;
 	int position_in_list = 0;
 	std::list<Bullet*>::iterator it1, it2;
 	Bullet* b_ptr;
@@ -139,6 +140,7 @@ int main()
 			if (b_ptr != nullptr)
 			{
 				NPCBullets.push_back(b_ptr);
+				bulletCount++;
 			}
 		}
 
@@ -150,17 +152,24 @@ int main()
 		// this should be working neither remove nor erase works when I pass things in. using the list and nodes I made might work better but I don't want
 		// to make that executive decision without discussion before hand. If you guys think that'll work best I am 90% sure my nodes are set up to do what
 		//we are using this other list to do just use insert front or yell at me and I can walk throught it with y'all.
-
-		/*for (auto const& q : NPCBullets)
-		{
+		bool allChecked = false;
+		while (allChecked = false) {
 			it1 = NPCBullets.begin();
-			if (q->deleteAtEdge())
+			for (auto const& q : NPCBullets)
 			{
+
+					if (q->deleteAtEdge())
+					{
+						allChecked = false;
+						break;
+					}
+					it1++;
+					allChecked = true;
+				}
+			if (allChecked == false) {
 				NPCBullets.erase(it1);
-				break;
 			}
-			it1++;
-		}*/
+		}
 
 		for (auto const& b : playerBullets) {
 			b->moveObject();
