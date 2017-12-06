@@ -31,17 +31,17 @@ bool Object::collision(Object* other) { // assuming our hitboxes will be circles
 
 bool Object::deleteAtEdge() {
 	sf::Vector2f place = graphic->getPosition();
-	if (place.x < 0) {
+	if (place.x < -50) {
 		return true;
 		}
 	
-	if (place.x > 1280) {
+	if (place.x > 1330) {
 		return true;
 	}
-	else if (place.y < 0) {
+	else if (place.y < -50) {
 		return true;
 	}
-	else if (place.y > 720) {
+	else if (place.y > 770) {
 		return true;
 	}
 	return false;
