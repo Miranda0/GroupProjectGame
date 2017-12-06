@@ -4,6 +4,9 @@
 
 
 Player::Player(): Object(5.0,0.0){
+	playerCurrentHealth = 10;
+	playerMaxHealth = 10;
+
 	playerGraphic.loadFromFile("fighter.png");
 	graphic->setTexture(playerGraphic);
 	//collisionBox.setSize(sf::Vector2f(texture.getSize().x, texture.getSize().y));
@@ -12,6 +15,11 @@ Player::Player(): Object(5.0,0.0){
 }
 Player::~Player() {
 
+}
+
+
+int Player::getHealth() {
+	return playerCurrentHealth;
 }
 void Player::move(float newX, float newY) {
 	this->graphic->move(newX, newY);
@@ -41,6 +49,7 @@ precondition: damagePoints is positive
 void Player::damage(int damagePoints) {
 	playerCurrentHealth -= damagePoints;
 	if (playerCurrentHealth < 1)
+		playerCurrentHealth = 0;
 		destroy();
 }
 void Player::setPosition(float setX, float setY) {

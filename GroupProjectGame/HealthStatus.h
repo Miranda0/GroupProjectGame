@@ -16,14 +16,17 @@ public:
 	~healthStatus();
 	int getHealth();
 	int getMaxHealth();
+	std::string &getHealthString();
+	void buildString();
 
 	void setHealth(int newHealth);
 	void setMaxHealth(int newMaxHealth);
 
 
 
-private:	
-	int maxHealth;
+private:
+	std::string healthString;
+	int maxHealth;	
 	int health;
 
 

@@ -17,6 +17,7 @@ healthStatus::healthStatus()
 		cout << '-';
 	}
 	cout << endl;
+	buildString();
 }
 	
 	
@@ -34,14 +35,26 @@ healthStatus::healthStatus()
 	{
 		return maxHealth;
 	}
+	std::string &healthStatus::getHealthString() {
+		return healthString;
+	}
+	void healthStatus::buildString() {
+		healthString = "";
+		for (int i = 0; i < health; i++)
+			healthString.append("*");
+		for (int i = 0; i < (maxHealth - health); i++)
+			healthString.append("-");
+	}
 
 	void healthStatus::setHealth(int newHealth)
 	{
 		health = newHealth;
+		buildString();
 	}
 	void healthStatus::setMaxHealth(int newMaxHealth)
 	{
 		maxHealth = newMaxHealth;
+		buildString();
 	}
 
 	

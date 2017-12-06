@@ -18,10 +18,10 @@ sf::Sprite &Bullet::getGraphic() {
 	return *graphic;
 }
 void Bullet::moveObject() {
-	float PI = 3.14159;
+	float PI = 3.14159265359;
 	float xMove;
 	float yMove;
-	float radDir = direction * (180 / PI);
+	float radDir = direction * (PI / 180);
 	xMove = cos(radDir) * speed;
 	yMove = sin(radDir) * speed;
 	graphic->move(xMove, yMove);

@@ -8,6 +8,8 @@ public:
 	Player();
 	~Player();
 
+	int getHealth();
+
 	void move(float newX, float newY);
 	void shoot();
 	void heal(int healPoints);

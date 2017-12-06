@@ -66,7 +66,7 @@ int main()
 	sf::Font font;
 	font.loadFromFile("arial.ttf");
 	debugMessage.setFillColor(sf::Color::White);
-	debugMessage.setCharacterSize(24);
+	debugMessage.setCharacterSize(12);
 	debugMessage.setFont(font);
 
 	// background code
@@ -78,6 +78,17 @@ int main()
 	//health bar
 	healthStatus healthBar;
 	healthBar.getMaxHealth();
+	healthBar.setHealth(10);
+	healthBar.setMaxHealth(10);
+	sf::Text healthDisplay;
+	sf::Font healthFont;
+	healthFont.loadFromFile("Px437_VTech_BIOS.ttf");
+	healthDisplay.setFillColor(sf::Color::Green);
+	healthDisplay.setCharacterSize(24);
+	healthDisplay.setFont(healthFont);
+	healthDisplay.setOutlineThickness(3.5f);
+	healthDisplay.setOutlineColor(sf::Color::Black);
+	healthDisplay.setPosition(20.0, 20.0f);
 
 	while (window.isOpen())
 	{
@@ -101,8 +112,24 @@ int main()
 					pressedDown = true;
 				}
 				if (event.key.code == sf::Keyboard::Space) {
-					cout << "boom" << endl;
-					playerBullets.push_back(new Bullet(90, player.getGraphic().getPosition().x + 20, player.getGraphic().getPosition().y + 20));
+					playerBullets.push_back(new Bullet(270, player.getGraphic().getPosition().x + 50, player.getGraphic().getPosition().y + 20));
+				}
+				if (event.key.code == sf::Keyboard::D) {
+					player.damage(1);
+					healthBar.setHealth(player.getHealth());
+					if (player.getHealth() < 3)
+						healthDisplay.setFillColor(sf::Color::Red);
+					else if (player.getHealth() < 6)
+						healthDisplay.setFillColor(sf::Color::Yellow);
+
+				}
+				if (event.key.code == sf::Keyboard::H) {
+					player.heal(1);
+					healthBar.setHealth(player.getHealth());
+					if (player.getHealth() > 6)
+						healthDisplay.setFillColor(sf::Color::Green);
+					else if (player.getHealth() > 3)
+						healthDisplay.setFillColor(sf::Color::Yellow);
 				}
 			}
 			if (event.type == sf::Event::KeyReleased) 			// key release
@@ -254,7 +281,8 @@ int main()
 			"NPCBullets.size() =  " + std::to_string(NPCBullets.size()) + '\n' +
 			"Enemy1List.size() =  " + std::to_string(enemy1List.size()) + '\n' +
 			"time(frames since start): " + std::to_string(time));
-
+		healthDisplay.setString("Health: " + healthBar.getHealthString());
+		
 		// collisions
 		if (player.checkCollision(death.getCollision())) {
 			// cout << "bOOMSD!" << endl; // debug
@@ -283,7 +311,8 @@ int main()
 		window.draw(player.getGraphic());
 		window.draw(*death.getGraphic());
 		window.draw(*health.getGraphic());
-		window.draw(debugMessage);
+		// window.draw(debugMessage); // debug
+		window.draw(healthDisplay);
 
 		window.display();
 	}
