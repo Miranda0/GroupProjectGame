@@ -9,6 +9,8 @@ NPC::NPC():Object(20,10)
 	shoot_speed = 1;
 	direction = 0;
 	shot = nullptr;
+	collisionBox.setSize(sf::Vector2f(50.0f, 50.0f));
+	collisionBox.setFillColor(sf::Color::White);
 }
 
 NPC::~NPC()
@@ -72,6 +74,7 @@ void NPC::movement()
 	xMove = cos(radDir) * speed;
 	yMove = sin(radDir) * speed;
 	graphic->move(xMove, yMove);
+	this->collisionBox.move(xMove, yMove);
 }
 
 void NPC::destroy() 

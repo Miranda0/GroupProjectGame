@@ -35,9 +35,6 @@ void Asteroid::moveObject(){
 sf::Sprite* Asteroid::getGraphic() {
 	return graphic;
 }
-sf::RectangleShape Asteroid::getCollisionBox() {
-	return collisionBox;
-}
 
 Asteroid::~Asteroid() {
 

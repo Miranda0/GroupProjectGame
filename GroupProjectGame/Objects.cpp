@@ -31,17 +31,38 @@ bool Object::collision(Object* other) { // assuming our hitboxes will be circles
 
 bool Object::deleteAtEdge() {
 	sf::Vector2f place = graphic->getPosition();
-	if (place.x < 0) {
+	if (place.x < -50) {
 		return true;
 		}
 	
-	if (place.x > 1280) {
+	if (place.x > 1330) {
 		return true;
 	}
-	else if (place.y < 0) {
+	else if (place.y < -50) {
 		return true;
 	}
-	else if (place.y > 720) {
+	else if (place.y > 770) {
+		return true;
+	}
+	return false;
+}
+
+sf::RectangleShape Object::getCollisionBox() {
+	return collisionBox;
+}
+
+bool Object::checkCollision(Collider &other) {
+	sf::Vector2f otherPosition = other.getPosition();
+	sf::Vector2f otherHalfSize = other.getHalfSize();
+	sf::Vector2f thisPosition = collisionBox.getPosition();
+	sf::Vector2f thisHalfSize = collisionBox.getSize() / 2.0f;
+
+	float deltaX = otherPosition.x - thisPosition.x;
+	float deltaY = otherPosition.y - thisPosition.y;
+	float intersectX = abs(deltaX) - (otherHalfSize.x + thisHalfSize.x);
+	float intersectY = abs(deltaY) - (otherHalfSize.y + thisHalfSize.y);
+
+	if (intersectX < 0.0f && intersectY < 0.0f) {
 		return true;
 	}
 	return false;

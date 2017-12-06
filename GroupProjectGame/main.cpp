@@ -269,6 +269,31 @@ int main()
 			}
 		}
 
+		// removing collided enemies
+		bool allHitEnemiesRemoved = false;
+		while (allHitEnemiesRemoved == false && enemy1List.size() > 0 && playerBullets.size() > 0) {	// remove player's bullets
+			stepper = enemy1List.begin();
+			for (auto const& e : enemy1List){
+				it1 = playerBullets.begin();
+				for (auto const& b : playerBullets) {
+					if (e->checkCollision(b->getCollision())) {
+						allHitEnemiesRemoved = false;
+						break;
+					}
+					it1++;
+					allHitEnemiesRemoved = true;
+				}
+				if (allHitEnemiesRemoved == false) {
+					playerBullets.erase(it1);
+					enemy1List.erase(stepper);
+					break;
+				}
+				stepper++;
+				asteroidChecked = true;
+			}
+		}
+
+
 		// this should be working neither remove nor erase works when I pass things in. 
 		// using the list and nodes I made might work better but I don't want
 		// to make that executive decision without discussion before hand. 
@@ -304,6 +329,7 @@ int main()
 		}
 		for (auto const& e : enemy1List) {
 			window.draw(*e->get_graphic());
+			window.draw(e->getCollisionBox());
 		}
 		for (auto const& a : asteroidList) {
 			window.draw(*a->getGraphic());

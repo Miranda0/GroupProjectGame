@@ -6,6 +6,9 @@ Bullet::Bullet(int newDirection, float xPos, float yPos):Object(5, 4) {
 	graphic->setTexture(texture);
 	graphic->rotate(90);
 	graphic->setPosition(xPos, yPos);
+	collisionBox.setPosition(xPos, yPos);
+	collisionBox.setSize(sf::Vector2f(50.0f, 50.0f));
+	collisionBox.setFillColor(sf::Color::White);
 }
 
 Bullet::~Bullet() {
@@ -25,4 +28,5 @@ void Bullet::moveObject() {
 	xMove = cos(radDir) * speed;
 	yMove = sin(radDir) * speed;
 	graphic->move(xMove, yMove);
+	collisionBox.move(xMove, yMove);
 }
