@@ -45,6 +45,7 @@ int main()
 	int bulletCount = 0;
 	int position_in_list = 0;
 	std::list<Bullet*>::iterator it1, it2;
+	std::list<Enemy1*>::iterator stepper;
 	Bullet* b_ptr;
 	Player player;
 	player.setPosition(640, 600);
@@ -175,6 +176,26 @@ int main()
 			b->moveObject();
 		}
 		
+		bool enemyChecked = false;
+		while (allChecked = false) {
+			stepper = enemy1List.begin();
+			for (auto const& e : enemy1List)
+			{
+
+				if (e->deleteAtEdge())
+				{
+					enemyChecked = false;
+					break;
+				}
+				stepper++;
+				enemyChecked = true;
+			}
+			if (enemyChecked == false) {
+				enemy1List.erase(stepper);
+				enemy1Count--;
+			}
+		}
+
 		//slater edit
 		debugMessage.setString("player horizontal speed: " + std::to_string(playerHVelocity) + '\n' +
 			"player vertical speed: " + std::to_string(playerVVelocity) + '\n' +
