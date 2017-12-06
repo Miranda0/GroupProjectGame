@@ -81,7 +81,7 @@ int main()
 			Enemy1* newEnemy = new Enemy1;
 			enemy1List.push_back(newEnemy);
 			enemy1Count++;
-			randEnemyGeneration = rand() % 30 + time;
+			randEnemyGeneration = rand() % 30 + time + 60;
 		}
 		while (window.pollEvent(event))
 		{
@@ -136,7 +136,6 @@ int main()
 		death.moveObject();
 		for (auto const& e : enemy1List) {
 			e->movement();
-			e->deleteAtEdge();
 			b_ptr = e->shoot();
 			if (b_ptr != nullptr)
 			{
@@ -154,21 +153,25 @@ int main()
 		// to make that executive decision without discussion before hand. If you guys think that'll work best I am 90% sure my nodes are set up to do what
 		//we are using this other list to do just use insert front or yell at me and I can walk throught it with y'all.
 		bool allChecked = false;
-		while (allChecked = false) {
+		bool deleteThing = false;
+		while (allChecked == false) {
 			it1 = NPCBullets.begin();
 			for (auto const& q : NPCBullets)
 			{
 
 					if (q->deleteAtEdge())
 					{
+						deleteThing = true;
 						allChecked = false;
 						break;
 					}
-					it1++;
+					if (bulletCount)
+					++it1;
 					allChecked = true;
 				}
-			if (allChecked == false) {
+			if (deleteThing == true) {
 				NPCBullets.erase(it1);
+				bulletCount--;
 			}
 		}
 
@@ -177,20 +180,24 @@ int main()
 		}
 		
 		bool enemyChecked = false;
-		while (allChecked = false) {
+		deleteThing = false;
+		while (enemyChecked == false) {
 			stepper = enemy1List.begin();
 			for (auto const& e : enemy1List)
 			{
 
 				if (e->deleteAtEdge())
 				{
+					deleteThing = true;
 					enemyChecked = false;
 					break;
 				}
-				stepper++;
+				else {
+					++stepper;
+				}
 				enemyChecked = true;
 			}
-			if (enemyChecked == false) {
+			if (deleteThing == true) {
 				enemy1List.erase(stepper);
 				enemy1Count--;
 			}
