@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "healthkit.h"
 #include "Andrew.h"
+#include "HealthStatus.h"
 
 // SFML libraries
 #include <SFML/Graphics.hpp>
@@ -31,6 +32,7 @@ int main()
 
 	healthkit health;
 	Asteroid death;
+	healthStatus healthBar;
 	// window settings
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setFramerateLimit(60);
@@ -71,6 +73,8 @@ int main()
 	if (!backgroundImage.loadFromFile("milky_way_stars_night_sky_space_97654_1280x720.jpg"));
 	sf::Sprite background(backgroundImage);
 	//https://wallpaperscraft.com/image/milky_way_stars_night_sky_space_97654_1280x720.jpg
+	
+
 
 	while (window.isOpen())
 	{

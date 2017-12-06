@@ -7,7 +7,7 @@ healthkit::healthkit() :Object(10, 0)
 	srand(time(NULL));
 	healthShape.loadFromFile("newlifekit.png");
 	graphic->setTexture(healthShape);
-	healthHit.setSize(sf::Vector2f(20.0f, 20.0f));
+	healthKit.setSize(sf::Vector2f(20.0f, 20.0f));
 	
 
 	int position = 600;
@@ -44,7 +44,6 @@ sf::Sprite* healthkit::getGraphic()
 void collisionDetect() 
 {
 	
-
 }
 
 
