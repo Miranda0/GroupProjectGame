@@ -10,6 +10,8 @@ public:
 
 	void move(float newX, float newY);
 	void shoot();
+	void heal(int healPoints);
+	void damage(int damagePoints);
 	void destroy();
 	void setPosition(float newX, float newY);
 	bool isAlive();
@@ -21,6 +23,7 @@ public:
 private:
 	sf::Texture playerGraphic;
 	sf::RectangleShape collisionBox;
-	int playerHealth;
+	int playerCurrentHealth;
+	int playerMaxHealth;
 	bool alive;
 };

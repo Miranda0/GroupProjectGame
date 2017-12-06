@@ -24,6 +24,25 @@ void Player::shoot() {
 void Player::destroy() {
 	std::cout << "player go boom" << std::endl;
 }
+/*
+will heal player up to playerMaxHealth
+precondition: healPoints is positive
+*/
+void Player::heal(int healPoints) {
+	playerCurrentHealth += healPoints;
+	if (playerCurrentHealth > playerMaxHealth)
+		playerCurrentHealth = playerMaxHealth;
+}
+/*
+will damage player until health is < 1
+runs destroy() when player health is < 1
+precondition: damagePoints is positive
+*/
+void Player::damage(int damagePoints) {
+	playerCurrentHealth -= damagePoints;
+	if (playerCurrentHealth < 1)
+		destroy();
+}
 void Player::setPosition(float setX, float setY) {
 	this->graphic->setPosition(setX, setY);
 	this->collisionBox.setPosition(setX + 10, setY + 10);
