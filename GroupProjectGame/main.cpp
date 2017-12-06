@@ -90,7 +90,7 @@ int main()
 	healthDisplay.setOutlineColor(sf::Color::Black);
 	healthDisplay.setPosition(20.0, 20.0f);
 
-	while (window.isOpen())
+	while (window.isOpen() && player.getHealth() != 0)
 	{
 		sf::Event event;
 		time++;
