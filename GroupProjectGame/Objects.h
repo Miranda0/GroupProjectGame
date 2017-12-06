@@ -16,5 +16,5 @@ public:
 	~Object();
 	void setSpeed(float newSpeed);
 	virtual bool collision(Object* other);
-	void deleteAtEdge();
+	bool deleteAtEdge();
 };
