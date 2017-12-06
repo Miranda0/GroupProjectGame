@@ -7,5 +7,6 @@ public:
 	Enemy1();
 	~Enemy1();
 	void destroy();
+	bool checkCollision(Collider &other);
 private:
 };

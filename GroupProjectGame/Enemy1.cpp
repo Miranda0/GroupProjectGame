@@ -14,7 +14,8 @@ Enemy1::Enemy1():NPC()
 	shoot_speed = 5;
 	direction = 3.14159 * .5;
 	float position = rand() % 1280;
-	graphic->setPosition(position, 0);	
+	graphic->setPosition(position, 0);
+	this->collisionBox.setPosition(position + 10, 10);
 }
 
 
@@ -33,4 +34,21 @@ void Enemy1::destroy()
 	else {
 		// destroy object here after linked list of enemies implemented
 	}
+}
+
+bool Enemy1::checkCollision(Collider &other) {
+	sf::Vector2f otherPosition = other.getPosition();
+	sf::Vector2f otherHalfSize = other.getHalfSize();
+	sf::Vector2f thisPosition = collisionBox.getPosition();
+	sf::Vector2f thisHalfSize = collisionBox.getSize() / 2.0f;
+
+	float deltaX = otherPosition.x - thisPosition.x;
+	float deltaY = otherPosition.y - thisPosition.y;
+	float intersectX = abs(deltaX) - (otherHalfSize.x + thisHalfSize.x);
+	float intersectY = abs(deltaY) - (otherHalfSize.y + thisHalfSize.y);
+
+	if (intersectX < 0.0f && intersectY < 0.0f) {
+		return true;
+	}
+	return false;
 }

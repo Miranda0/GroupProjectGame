@@ -8,7 +8,7 @@
 class Asteroid: public Object {
 private:
 	int direction;
-	sf::RectangleShape collisionBox;
+	
 public:
 	Asteroid();
 	Asteroid(float xPos, float yPos, float speed = 1.0f, int direction = 0);
@@ -16,6 +16,4 @@ public:
 	void moveObject();
 	void virtual destroy();
 	sf::Sprite* getGraphic();
-	sf::RectangleShape getCollisionBox();
-	Collider getCollision() { return Collider(collisionBox); }
 };

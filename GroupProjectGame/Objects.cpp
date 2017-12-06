@@ -46,3 +46,24 @@ bool Object::deleteAtEdge() {
 	}
 	return false;
 }
+
+sf::RectangleShape Object::getCollisionBox() {
+	return collisionBox;
+}
+
+bool Object::checkCollision(Collider &other) {
+	sf::Vector2f otherPosition = other.getPosition();
+	sf::Vector2f otherHalfSize = other.getHalfSize();
+	sf::Vector2f thisPosition = collisionBox.getPosition();
+	sf::Vector2f thisHalfSize = collisionBox.getSize() / 2.0f;
+
+	float deltaX = otherPosition.x - thisPosition.x;
+	float deltaY = otherPosition.y - thisPosition.y;
+	float intersectX = abs(deltaX) - (otherHalfSize.x + thisHalfSize.x);
+	float intersectY = abs(deltaY) - (otherHalfSize.y + thisHalfSize.y);
+
+	if (intersectX < 0.0f && intersectY < 0.0f) {
+		return true;
+	}
+	return false;
+}
