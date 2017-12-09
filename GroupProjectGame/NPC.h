@@ -12,15 +12,16 @@ public:
 	void set_shoot_speed(float shoot_speed);
 	void set_direction(int direction);
 	float get_speed();
-	sf::Sprite* get_graphic();
+	sf::Sprite &getGraphic();
 	int get_health();
 	float get_shoot_speed();
 	int get_direction();
 	void movement();
 	Bullet* shoot();
-	void virtual destroy() = 0;
+	void virtual destroy();
 
 protected:
+	int time;
 	int health;
 	float shoot_speed;
 	float direction;

@@ -36,9 +36,9 @@ void healthkit::destroy()
 	//need to set points to 2 for health kit, and collisions
 }
 
-sf::Sprite* healthkit::getGraphic()
+sf::Sprite &healthkit::getGraphic()
 {
-	return graphic;
+	return *graphic;
 }
 
 void collisionDetect() 

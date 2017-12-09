@@ -20,6 +20,13 @@ public:
 	Object(float radius, float newSpeed);
 	~Object();
 	void setSpeed(float newSpeed);
+	/*
+		Arthur 12/8/17
+
+	making getGraphic pure virtual so we can also use it to 
+	increment time within enemies for enemy movements/ai  
+	*/
+	sf::Sprite virtual &getGraphic() = 0;
 	virtual bool collision(Object* other);
 	bool deleteAtEdge();
 };

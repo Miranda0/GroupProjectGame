@@ -15,7 +15,7 @@ public:
 	~healthkit();
 	//int getHealthPts();
 	void virtual destroy();
-	sf::Sprite* getGraphic();
+	sf::Sprite &getGraphic();
 	Collider getCollision() { return Collider(healthKit); }
 	//need to check for collision
 	//if collision, add 2 points to health

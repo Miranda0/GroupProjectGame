@@ -8,5 +8,6 @@ public:
 	~Enemy1();
 	void destroy();
 	bool checkCollision(Collider &other);
+	// sf::Sprite &getGraphic();
 private:
 };

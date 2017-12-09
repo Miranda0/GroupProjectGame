@@ -10,6 +10,6 @@ public:
 	sf::Sprite &getGraphic();
 	void virtual destroy();
 	Collider getCollision() { return Collider(collisionBox); }
-	bool checkCollision(Collider &other);
-	sf::RectangleShape getCollisionBox();
+	// bool checkCollision(Collider &other);
+	// sf::RectangleShape getCollisionBox();
 };

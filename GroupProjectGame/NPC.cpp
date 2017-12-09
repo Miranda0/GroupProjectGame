@@ -47,9 +47,11 @@ float NPC::get_speed()
 	return this->speed;
 }
 
-sf::Sprite* NPC::get_graphic()
+sf::Sprite &NPC::getGraphic()
 {
-	return this->graphic;
+	time++;	// increment time for future implementation of enemy ai
+	return *graphic;
+	
 }
 int NPC::get_health()
 {

@@ -17,13 +17,15 @@ Enemy1::Enemy1():NPC()
 	graphic->setPosition(position, 0);
 	this->collisionBox.setPosition(position + 10, 10);
 }
-
-
 Enemy1::~Enemy1()
 {
 
 }
 
+//sf::Sprite &Enemy1::getGraphic()
+//{
+//	return this->getGraphic();
+//}
 void Enemy1::destroy()
 {
 	if (destroyed == false) {
