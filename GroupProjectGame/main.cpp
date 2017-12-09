@@ -61,7 +61,7 @@ int main()
 	bool pressedDown = false;
 	bool firing = false;
 
-	//debug (maybe use this for player health?)
+	//debug
 	sf::Text debugMessage;
 	sf::Font font;
 	font.loadFromFile("arial.ttf");
@@ -179,6 +179,14 @@ int main()
 		}
 
 		// random generation of entities
+		/*
+		Arthur 12/8/17
+
+		stuttering happening here
+		random object generation could benefit from static texture member variables. 
+		this way the textures are loading the file only once instead of every time an 
+		enemy spawns. 
+		*/
 		if (randEnemyGeneration < time && enemy1List.size() < 15) {
 			Enemy1* newEnemy = new Enemy1;
 			enemy1List.push_back(newEnemy);
@@ -344,14 +352,14 @@ int main()
 			window.draw(q->getGraphic());
 		}
 		for (auto const& e : enemy1List) {
-			window.draw(*e->get_graphic());
+			window.draw(e->getGraphic());
 		}
 		for (auto const& a : asteroidList) {
-			window.draw(*a->getGraphic());
+			window.draw(a->getGraphic());
 		}
 		window.draw(player.getGraphic());
-		window.draw(*death.getGraphic());
-		window.draw(*health.getGraphic());
+		window.draw(death.getGraphic());
+		window.draw(health.getGraphic());
 		// window.draw(debugMessage); // debug
 		window.draw(healthDisplay);
 

@@ -26,7 +26,7 @@ public:
 	making getGraphic pure virtual so we can also use it to 
 	increment time within enemies for enemy movements/ai  
 	*/
-	sf::Sprite virtual &getGraphic() = 0;
+	virtual sf::Sprite &getGraphic() = 0;
 	virtual bool collision(Object* other);
 	bool deleteAtEdge();
 };
