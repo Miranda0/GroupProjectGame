@@ -90,7 +90,7 @@ int main()
 	healthDisplay.setOutlineColor(sf::Color::Black);
 	healthDisplay.setPosition(20.0, 20.0f);
 
-	while (window.isOpen())
+	while (window.isOpen() && player.getHealth() != 0)
 	{
 		sf::Event event;
 		time++;
@@ -293,6 +293,22 @@ int main()
 			}
 		}
 
+		it1 = NPCBullets.begin();
+		for (auto const& b : NPCBullets) {
+			if (player.checkCollision(b->getCollision())){
+				player.damage(1);
+				NPCBullets.erase(it1);
+				healthBar.setHealth(player.getHealth());
+				if (player.getHealth() < 3)
+					healthDisplay.setFillColor(sf::Color::Red);
+				else if (player.getHealth() < 6)
+					healthDisplay.setFillColor(sf::Color::Yellow);
+				break;
+			}
+			it1++;
+		}
+		
+
 
 		// this should be working neither remove nor erase works when I pass things in. 
 		// using the list and nodes I made might work better but I don't want
@@ -329,7 +345,6 @@ int main()
 		}
 		for (auto const& e : enemy1List) {
 			window.draw(*e->get_graphic());
-			window.draw(e->getCollisionBox());
 		}
 		for (auto const& a : asteroidList) {
 			window.draw(*a->getGraphic());
